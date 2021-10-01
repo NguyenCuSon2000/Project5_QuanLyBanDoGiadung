@@ -1,6 +1,7 @@
 import { AfterViewInit, Component, Injector, OnInit, Renderer2 } from '@angular/core';
-import { BaseComponent } from '../core/base-component';
-import { HousingService } from '../services/housing.service';
+import { BaseComponent } from 'src/app/core/base-component';
+import { HousingService } from 'src/app/services/housing.service';
+
 import { ICategory } from './ICategory.interface';
 
 @Component({
@@ -15,21 +16,19 @@ export class HomeComponent extends BaseComponent  implements OnInit, AfterViewIn
     super(injector);
   }
   ngOnInit(): void {
-    window.scroll(0,0);
-    this.housingService.getAllCategories().subscribe(
-      data=>{
-        this.categories = data;
-      }, error => {
-        console.log(error);
-      }
+  window.scroll(0,0);
+  this.housingService.getAllCategories().subscribe(
+    data=>{
+      this.categories = data;
+    }, error => {
+      console.log(error);
+    }
     );
-      
-    }
-  
-    ngAfterViewInit() { 
-     this.loadScripts(); 
-    }
-  
-  
+    
   }
+  
+  ngAfterViewInit() { 
+    this.loadScripts(); 
+  }
+}
   

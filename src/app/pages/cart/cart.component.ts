@@ -1,6 +1,6 @@
 import { AfterViewInit, Component, Injector, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { BaseComponent } from '../core/base-component';
+import { BaseComponent } from 'src/app/core/base-component';
 
 @Component({
   selector: 'app-cart',

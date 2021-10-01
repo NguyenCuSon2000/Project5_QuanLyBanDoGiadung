@@ -1,32 +1,35 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, Injector, OnInit, Renderer2 } from '@angular/core';
+import { BaseComponent } from '../core/base-component';
+import { HousingService } from '../services/housing.service';
+import { ICategory } from './ICategory.interface';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent implements OnInit {
-
-  // constructor(private renderer: Renderer2) { }
-
-  ngOnInit(): void {
+export class HomeComponent extends BaseComponent  implements OnInit, AfterViewInit {
+  
+  categories: Array<ICategory>;
+  constructor(injector: Injector, private housingService: HousingService ) {
+    super(injector);
   }
-
-  // ngAfterViewInit() { 
-  //  this.loadScripts(); 
-  // }
-
-  // public loadScripts() {
-  //   this.renderExternalScript('assets/js/main.js').onload = () => {
-  //   }
-  // }
-  // public renderExternalScript(src: string): HTMLScriptElement {
-  //   const script = document.createElement('script');
-  //   script.type = 'text/javascript';
-  //   script.src = src;
-  //   script.async = true;
-  //   script.defer = true;
-  //   this.renderer.appendChild(document.body, script);
-  //   return script;
-  // }
-}
+  ngOnInit(): void {
+    window.scroll(0,0);
+    this.housingService.getAllCategories().subscribe(
+      data=>{
+        this.categories = data;
+      }, error => {
+        console.log(error);
+      }
+    );
+      
+    }
+  
+    ngAfterViewInit() { 
+     this.loadScripts(); 
+    }
+  
+  
+  }
+  

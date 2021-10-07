@@ -1,6 +1,7 @@
 import { AfterViewInit, Component, Injector, OnInit, Renderer2 } from '@angular/core';
-import { BaseComponent } from 'src/app/core/base-component';
-import { HousingService } from 'src/app/services/housing.service';
+import { HousingService } from '../../../services/housing.service';
+import { BaseComponent } from '../../../core/base-component';
+
 
 import { ICategory } from './ICategory.interface';
 
@@ -9,8 +10,8 @@ import { ICategory } from './ICategory.interface';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent extends BaseComponent  implements OnInit, AfterViewInit {
-  
+export class HomeComponent extends BaseComponent implements OnInit, AfterViewInit {
+ 
   categories: Array<ICategory>;
   constructor(injector: Injector, private housingService: HousingService ) {
     super(injector);

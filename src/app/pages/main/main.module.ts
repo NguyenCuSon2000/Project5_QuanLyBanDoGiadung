@@ -3,7 +3,6 @@ import { HomeComponent } from './home/home.component';
 import { ProductListComponent } from './product-list/product-list.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
-import { CartComponent } from '../cart/cart.component';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 

@@ -1,22 +1,24 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import {HttpClientModule} from '@angular/common/http'
+import { HttpClientModule } from '@angular/common/http'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
 import { HousingService } from './services/housing.service';
+import { LoginComponent } from './pages/login/login.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    SharedModule,
+    SharedModule
   ],
   providers: [
     HousingService

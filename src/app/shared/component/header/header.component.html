@@ -5,45 +5,39 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-12 d-flex align-items-center justify-content-between">
-                         <!-- Start Header Logo -->
+                        <!-- Start Header Logo -->
                         <div class="header-logo">
                             <div class="logo">
                                 <a routerLink="home"><img src="assets/images/logo/logo_black.png" alt=""></a>
                             </div>
                         </div>
                         <!-- End Header Logo -->
-
+                        
                         <!-- Start Header Main Menu -->
                         <div class="main-menu menu-color--black menu-hover-color--golden">
                             <nav>
                                 <ul>
-                                    <!-- <li class="has-dropdown">
-                                        <a class="active main-menu-link" routerLink="home" routerLinkActive="active">Home <i class="fa fa-angle-down"></i></a>
-                                        Sub Menu
-                                        <ul class="sub-menu">
-                                            <li><a href="index.html">Home 1</a></li>
-                                            <li><a href="index-2.html">Home 2</a></li>
-                                            <li><a href="index-3.html">Home 3</a></li>
-                                            <li><a href="index-4.html">Home 4</a></li>
-                                        </ul>
-                                    </li> -->
                                     <li>
-                                        <a [routerLinkActiveOptions]="{exact:true}" routerLinkActive="active" routerLink="home" >Home</a>
+                                        <a [routerLinkActiveOptions]="{exact:true}" routerLinkActive="active" routerLink="/" >Trang chủ</a>
                                     </li>
                                     <li class="has-dropdown has-megaitem">
-                                        <a href="product-details-default.html">Shop <i class="fa fa-angle-down"></i></a>
+                                        <a href="product-details-default.html">Cửa hàng<i class="fa fa-angle-down"></i></a>
                                         <!-- Mega Menu -->
                                         <div class="mega-menu">
                                             <ul class="mega-menu-inner">
                                                 <!-- Mega Menu Sub Link -->
                                                 <li class="mega-menu-item">
-                                                    <a href="#" class="mega-menu-item-title">Shop Layouts</a>
+                                                    <a href="#" class="mega-menu-item-title">Nhóm sản phẩm</a>
                                                     <ul class="mega-menu-sub">
-                                                        <li><a href="shop-grid-sidebar-left.html">Grid Left Sidebar</a></li>
-                                                        <li><a href="shop-grid-sidebar-right.html">Grid Right Sidebar</a></li>
-                                                        <li><a href="shop-full-width.html">Full Width</a></li>
-                                                        <li><a href="shop-list-sidebar-left.html">List Left Sidebar</a></li>
-                                                        <li><a href="shop-list-sidebar-right.html">List Right Sidebar</a></li>
+                                                        <li><a href="product-details-default.html">Product Default</a></li>
+                                                    </ul>
+                                                </li>
+                                                
+                                                <!-- Mega Menu Sub Link -->
+                                                <li class="mega-menu-item">
+                                                    <a href="#" class="mega-menu-item-title">Loại sản phẩm</a>
+                                                    <ul class="mega-menu-sub">
+                                                        <li *ngFor="let c of categories"><a routerLink="/product-list/{{c.maLoai}}">{{c.tenLoai}}</a></li>
                                                     </ul>
                                                 </li>
                                                 <!-- Mega Menu Sub Link -->
@@ -59,29 +53,6 @@
                                                         <li><a href="my-account.html">My Account</a></li>
                                                     </ul>
                                                 </li>
-                                                <!-- Mega Menu Sub Link -->
-                                                <li class="mega-menu-item">
-                                                    <a href="#" class="mega-menu-item-title">Product Types</a>
-                                                    <ul class="mega-menu-sub">
-                                                        <li><a href="product-details-default.html">Product Default</a></li>
-                                                        <li><a href="product-details-variable.html">Product Variable</a></li>
-                                                        <li><a href="product-details-affiliate.html">Product Referral</a></li>
-                                                        <li><a href="product-details-group.html">Product Group</a></li>
-                                                        <li><a href="product-details-single-slide.html">Product Slider</a></li>
-                                                    </ul>
-                                                </li>
-                                                <!-- Mega Menu Sub Link -->
-                                                <li class="mega-menu-item">
-                                                    <a href="#" class="mega-menu-item-title">Product Types</a>
-                                                    <ul class="mega-menu-sub">
-                                                        <li><a href="product-details-tab-left.html">Product Tab Left</a></li>
-                                                        <li><a href="product-details-tab-right.html">Product Tab Right</a></li>
-                                                        <li><a href="product-details-gallery-left.html">Product Gallery Left</a></li>
-                                                        <li><a href="product-details-gallery-right.html">Product Gallery Right</a></li>
-                                                        <li><a href="product-details-sticky-left.html">Product Sticky Left</a></li>
-                                                        <li><a href="product-details-sticky-right.html">Product Sticky right</a></li>
-                                                    </ul>
-                                                </li>
                                             </ul>
                                             <div class="menu-banner">
                                                 <a href="#" class="menu-banner-link">
@@ -95,12 +66,6 @@
                                         <!-- Sub Menu -->
                                         <ul class="sub-menu">
                                             <li><a href="blog-grid-sidebar-left.html">Blog Grid Sidebar left</a></li>
-                                            <li><a href="blog-grid-sidebar-right.html">Blog Grid Sidebar Right</a></li>
-                                            <li><a href="blog-full-width.html">Blog Full Width</a></li>
-                                            <li><a href="blog-list-sidebar-left.html">Blog List Sidebar Left</a></li>
-                                            <li><a href="blog-list-sidebar-right.html">Blog List Sidebar Right</a></li>
-                                            <li><a href="blog-single-sidebar-left.html">Blog Single Sidebar left</a></li>
-                                            <li><a href="blog-single-sidebar-right.html">Blog Single Sidebar Right</a></li>
                                         </ul>
                                     </li>
                                     <li class="has-dropdown">
@@ -174,10 +139,10 @@
                         </li>
                     </ul>
                 </div>
-                 <!-- End Mobile Left Side -->
-
-                 <!-- Start Mobile Right Side -->
-                 <div class="mobile-right-side">
+                <!-- End Mobile Left Side -->
+                
+                <!-- Start Mobile Right Side -->
+                <div class="mobile-right-side">
                     <ul class="header-action-link action-color--black action-hover-color--golden">
                         <li>
                             <a href="#search">
@@ -202,8 +167,8 @@
                             </a>
                         </li>
                     </ul>
-                 </div>
-                 <!-- End Mobile Right Side -->
+                </div>
+                <!-- End Mobile Right Side -->
             </div>
         </div>
     </div>
@@ -321,26 +286,26 @@
                 </ul>
             </div> <!-- End Mobile Menu Nav -->
         </div> <!-- End Mobile Menu -->
-
+        
         <!-- Start Mobile contact Info -->
         <div class="mobile-contact-info">
             <div class="logo">
-              <a href="index.html"><img src="assets/images/logo/logo_white.png" alt=""></a>  
+                <a href="index.html"><img src="assets/images/logo/logo_white.png" alt=""></a>  
             </div>
-
+            
             <address class="address">
                 <span>Address: 4710-4890 Breckinridge St, Fayettevill</span> 
                 <span>Call Us: (+800) 345 678, (+800) 123 456</span> 
                 <span>Email: yourmail@mail.com</span>    
             </address>
-
+            
             <ul class="social-link">
                 <li><a href="#"><i class="fa fa-facebook"></i></a></li>
                 <li><a href="#"><i class="fa fa-twitter"></i></a></li>
                 <li><a href="#"><i class="fa fa-instagram"></i></a></li>
                 <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
             </ul>
-
+            
             <ul class="user-link">
                 <li><a href="wishlist.html">Wishlist</a></li>
                 <li><a [routerLinkActiveOptions]="{exact:true}" routerLinkActive="active" routerLink="shopping/cart">Cart</a></li>
@@ -348,7 +313,7 @@
             </ul>
         </div>
         <!-- End Mobile contact Info -->
-
+        
     </div> <!-- End Offcanvas Mobile Menu Wrapper -->
 </div> <!-- ...:::: End Offcanvas Mobile Menu Section:::... -->
 
@@ -359,32 +324,32 @@
         <button class="offcanvas-close"><i class="ion-android-close"></i></button>
     </div> <!-- End Offcanvas Header -->
     <!-- Start Offcanvas Mobile Menu Wrapper -->
-        <!-- Start Mobile contact Info -->
-        <div class="mobile-contact-info">
-            <div class="logo">
-              <a href="index.html"><img src="assets/images/logo/logo_white.png" alt=""></a>  
-            </div>
-
-            <address class="address">
-                <span>Address: 4710-4890 Breckinridge St, Fayettevill</span> 
-                <span>Call Us: (+800) 345 678, (+800) 123 456</span> 
-                <span>Email: yourmail@mail.com</span>    
-            </address>
-
-            <ul class="social-link">
-                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-            </ul>
-
-            <ul class="user-link">
-                <li><a href="wishlist.html">Wishlist</a></li>
-                <li><a href="cart.html">Cart</a></li>
-                <li><a href="checkout.html">Checkout</a></li>
-            </ul>
+    <!-- Start Mobile contact Info -->
+    <div class="mobile-contact-info">
+        <div class="logo">
+            <a href="index.html"><img src="assets/images/logo/logo_white.png" alt=""></a>  
         </div>
-        <!-- End Mobile contact Info -->
+        
+        <address class="address">
+            <span>Address: 4710-4890 Breckinridge St, Fayettevill</span> 
+            <span>Call Us: (+800) 345 678, (+800) 123 456</span> 
+            <span>Email: yourmail@mail.com</span>    
+        </address>
+        
+        <ul class="social-link">
+            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+            <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+        </ul>
+        
+        <ul class="user-link">
+            <li><a href="wishlist.html">Wishlist</a></li>
+            <li><a href="cart.html">Cart</a></li>
+            <li><a href="checkout.html">Checkout</a></li>
+        </ul>
+    </div>
+    <!-- End Mobile contact Info -->
 </div> <!-- ...:::: End Offcanvas Mobile Menu Section:::... -->
 
 <!-- Start Offcanvas Addcart Section -->

@@ -13,8 +13,10 @@ export class CartComponent extends BaseComponent implements OnInit, AfterViewIni
     super(injector);
   }
   ngOnInit(): void {
+    window.scroll(0,0);
   }
-  onBack() {
+  
+  onHome() {
     this.router.navigate(['/'])
   }
   ngAfterViewInit() { 

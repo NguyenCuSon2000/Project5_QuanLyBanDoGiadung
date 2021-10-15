@@ -8,8 +8,7 @@
                     <div class="breadcrumb-nav breadcrumb-nav-color--black breadcrumb-nav-hover-color--golden">
                         <nav aria-label="breadcrumb">
                             <ul>
-                                <li><a href="index.html">Home</a></li>
-                                <li><a href="shop-grid-sidebar-left.html">Shop</a></li>
+                                <li><a routerLink="/">Home</a></li>
                                 <li class="active" aria-current="page">Cart</li>
                             </ul>
                         </nav>
@@ -73,7 +72,7 @@
                             </table>
                         </div>
                         <div class="cart_submit">
-                            <button (click)="onBack()" class="btn btn-md btn-golden mr-3" type="submit">Back shop</button>
+                            <button (click)="onHome()" class="btn btn-md btn-golden mr-3" type="submit">Back shop</button>
                             <button class="btn btn-md btn-golden" type="submit">update cart</button>
                         </div>
                     </div>
@@ -115,7 +114,7 @@
                                 <p class="cart_amount">$215.00</p>
                             </div>
                             <div class="checkout_btn">
-                                <a href="#" class="btn btn-md btn-golden">Proceed to Checkout</a>
+                                <a routerLink="/shopping/checkout" class="btn btn-md btn-golden">Proceed to Checkout</a>
                             </div>
                         </div>
                     </div>

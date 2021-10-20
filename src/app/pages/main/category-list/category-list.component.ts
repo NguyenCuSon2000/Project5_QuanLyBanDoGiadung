@@ -3,30 +3,25 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { BaseComponent } from '../../../core/base-component';
 
 @Component({
-  selector: 'app-product-list',
-  templateUrl: './product-list.component.html',
-  styleUrls: ['./product-list.component.css']
+  selector: 'app-category-list',
+  templateUrl: './category-list.component.html',
+  styleUrls: ['./category-list.component.css']
 })
-export class ProductListComponent extends BaseComponent implements OnInit {
-  public list_item: any;
+export class CategoryListComponent extends BaseComponent implements OnInit {
+  public list_category: any;
   public page = 1;
-  public pageSize = 3;
+  public pageSize = 4;
   public totalItems:any;
-  public x:any;
-  public quanlity: Number[]|any;
-
-  
   constructor(injector: Injector,private route: ActivatedRoute, private router: Router) { 
     super(injector);
-    this.quanlity = [5, 10, 15];
   }
 
   ngOnInit(): void {
-    window.scroll(0,0);
     this.route.params.subscribe(params => {
       let id = params['id'];
-      this._api.post('/api/SanPham/get-product-by-category',{page: this.page, pageSize: this.pageSize, maloai: id}).takeUntil(this.unsubscribe).subscribe(res => {
-        this.list_item = res.data;
+      let name = params['name'];
+      this._api.post('/api/LoaiSanPham/get-category-by-group',{page: this.page, pageSize: this.pageSize, manhom: id}).takeUntil(this.unsubscribe).subscribe(res => {
+        this.list_category = res.data;
         this.totalItems = res.totalItems;
         debugger;
         setTimeout(() => {
@@ -39,8 +34,9 @@ export class ProductListComponent extends BaseComponent implements OnInit {
   loadPage(page) { 
     this._route.params.subscribe(params => {
       let id = params['id'];
-      this._api.post('/api/SanPham/get-product-by-category', { page: page, pageSize: this.pageSize, maloai: id}).takeUntil(this.unsubscribe).subscribe(res => {
-        this.list_item = res.data;
+      let name = params['name'];
+      this._api.post('/api/LoaiSanPham/get-category-by-group', { page: page, pageSize: this.pageSize, manhom: id}).takeUntil(this.unsubscribe).subscribe(res => {
+        this.list_category = res.data;
         this.totalItems = res.totalItems;
         }, err => { });       
    });   

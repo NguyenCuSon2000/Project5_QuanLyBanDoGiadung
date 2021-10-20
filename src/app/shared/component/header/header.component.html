@@ -29,7 +29,7 @@
                                                 <li class="mega-menu-item">
                                                     <a href="#" class="mega-menu-item-title">Nhóm sản phẩm</a>
                                                     <ul class="mega-menu-sub">
-                                                        <li><a href="product-details-default.html">Product Default</a></li>
+                                                        <li *ngFor="let p_group of products_group"><a routerLink="/category-list/{{p_group.maNhom}}" >{{p_group.tenNhom}}</a></li>
                                                     </ul>
                                                 </li>
                                                 
@@ -37,7 +37,7 @@
                                                 <li class="mega-menu-item">
                                                     <a href="#" class="mega-menu-item-title">Loại sản phẩm</a>
                                                     <ul class="mega-menu-sub">
-                                                        <li *ngFor="let c of categories"><a routerLink="/product-list/{{c.maLoai}}">{{c.tenLoai}}</a></li>
+                                                        <li *ngFor="let category of categories"><a routerLink="/product-list/{{category.maLoai}}">{{category.tenLoai}}</a></li>
                                                     </ul>
                                                 </li>
                                                 <!-- Mega Menu Sub Link -->

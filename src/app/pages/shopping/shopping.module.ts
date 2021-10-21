@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { RouterModule } from '@angular/router';
 import { CartComponent } from './cart/cart.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { LoginComponent } from './login/login.component';
 
 
 
@@ -10,9 +12,12 @@ import { CartComponent } from './cart/cart.component';
   declarations: [
     CheckoutComponent,
     CartComponent,
+    LoginComponent
   ],
   imports: [
     CommonModule,
+    ReactiveFormsModule,
+    FormsModule,
     RouterModule.forChild([
       {
         path: 'cart',
@@ -22,6 +27,10 @@ import { CartComponent } from './cart/cart.component';
         path:'checkout',
         component: CheckoutComponent
       },
+      {
+        path:'register',
+        component: LoginComponent
+      }
     ])
   ]
 })

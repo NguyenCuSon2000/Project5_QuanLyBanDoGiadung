@@ -8,14 +8,32 @@ import { BaseComponent } from '../../../core/base-component';
   styleUrls: ['./cart.component.css']
 })
 export class CartComponent extends BaseComponent implements OnInit, AfterViewInit {
-
+  items:any;
+  total:any;
   constructor(injector: Injector, private router: Router) { 
     super(injector);
   }
   ngOnInit(): void {
     window.scroll(0,0);
+
+    this._cart.items.subscribe((res) => {
+      this.items = res;
+      this.total = 0;
+      for(let x of this.items){ 
+        x.money = x.quantity * x.giaBan;
+        this.total += x.quantity * x.giaBan;
+      } 
+    });
   }
-  
+  clearCart() { 
+    this._cart.clearCart();
+    alert('Xóa thành công');
+  }
+  addQty(item, quantity){ 
+    item.quantity =  quantity;
+    item.money =  Number.parseInt(item.quantity) *  item.giaBan;
+    this._cart.addQty(item);
+  }
   onHome() {
     this.router.navigate(['/'])
   }

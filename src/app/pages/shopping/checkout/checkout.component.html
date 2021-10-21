@@ -78,75 +78,57 @@
         <div class="checkout_form" data-aos="fade-up"  data-aos-delay="400">
             <div class="row">
                 <div class="col-lg-6 col-md-6">
-                    <form action="#">
+                    <form [formGroup]="frmCheckout" (ngSubmit)="onSubmit()">
                         <h3>Billing Details</h3>
                         <div class="row">
                             <div class="col-lg-6">
                                 <div class="default-form-box">
-                                    <label>First Name <span>*</span></label>
-                                    <input type="text">
+                                    <label>Họ <span>*</span></label>
+                                    <input type="text" formControlName="txtHo">
+                                    <div class="col alert alert-danger" role="alert" *ngIf="frmCheckout.controls.txtHo.errors && frmCheckout.controls.txtHo?.touched">
+                                        <div *ngIf="frmCheckout.controls.txtHo?.errors?.required">Không được phép rỗng</div>
+                                        <div *ngIf="frmCheckout.controls.txtHo?.errors?.minlength">Độ dài phải 2 - 50 ký tự</div>
+                                        <div *ngIf="frmCheckout.controls.txtHo?.errors?.maxlength">Độ dài phải 2 - 50 ký tự</div>
+                                        <div *ngIf="frmCheckout.controls.txtHo?.errors?.pattern">Họ không chứa ký tự đặc biệt</div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="default-form-box">
-                                    <label>Last Name <span>*</span></label>
-                                    <input type="text">
+                                    <label>Tên <span>*</span></label>
+                                    <input type="text" formControlName="txtTen">
+                                    <div class="col alert alert-danger" role="alert" *ngIf="frmCheckout.controls.txtTen.errors && frmCheckout.controls.txtTen?.touched">
+                                        <div *ngIf="frmCheckout.controls.txtTen?.errors?.required">Không được phép rỗng</div>
+                                        <div *ngIf="frmCheckout.controls.txtTen?.errors?.minlength">Độ dài phải 2 - 50 ký tự</div>
+                                        <div *ngIf="frmCheckout.controls.txtTen?.errors?.maxlength">Độ dài phải 2 - 50 ký tự</div>
+                                        <div *ngIf="frmCheckout.controls.txtTen?.errors?.pattern">Tên không chứa ký tự đặc biệt</div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="default-form-box">
-                                    <label>Company Name</label>
-                                    <input type="text">
+                                    <label>Địa chỉ</label>
+                                    <input type="text" formControlName="txtDiaChi">
                                 </div>
                             </div>
-                            <div class="col-12">
+                           
+                            <div class="col-lg-6">
                                 <div class="default-form-box">
-                                    <label for="country">country <span>*</span></label>
-                                    <select class="country_option nice-select wide" name="country" id="country">
-                                        <option value="2">Bangladesh</option>
-                                        <option value="3">Algeria</option>
-                                        <option value="4">Afghanistan</option>
-                                        <option value="5">Ghana</option>
-                                        <option value="6">Albania</option>
-                                        <option value="7">Bahrain</option>
-                                        <option value="8">Colombia</option>
-                                        <option value="9">Dominican Republic</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <div class="default-form-box">
-                                    <label>Street address <span>*</span></label>
-                                    <input placeholder="House number and street name" type="text">
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <div class="default-form-box">
-                                    <input placeholder="Apartment, suite, unit etc. (optional)" type="text">
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <div class="default-form-box">
-                                    <label>Town / City <span>*</span></label>
-                                    <input type="text">
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <div class="default-form-box">
-                                    <label>State / County <span>*</span></label>
-                                    <input type="text">
+                                    <label>Số điện thoại<span>*</span></label>
+                                    <input type="text" formControlName="txtSDT">
+                                    <div class="col alert alert-danger" role="alert" *ngIf="frmCheckout.controls.txtSDT.errors && frmCheckout.controls.txtSDT?.touched">
+                                        <div *ngIf="frmCheckout.controls.txtSDT?.errors?.required">Không được phép rỗng</div>
+                                        <div *ngIf="frmCheckout.controls.txtSDT?.errors?.pattern">Không phải định dạng số điện thoại</div>
+                                    </div>  
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="default-form-box">
-                                    <label>Phone<span>*</span></label>
-                                    <input type="text">
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="default-form-box">
-                                    <label> Email Address <span>*</span></label>
-                                    <input type="text">
+                                    <label> Email <span>*</span></label>
+                                    <input type="text" formControlName="txtEmail">
+                                    <div class="col alert alert-danger" role="alert" *ngIf="frmCheckout.controls.txtEmail.errors && frmCheckout.controls.txtEmail?.touched">
+                                        <div *ngIf="frmCheckout.controls.txtEmail?.errors?.txtEmail">Không phải định dạng email</div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-12">
@@ -248,6 +230,7 @@
                                 </div>
                             </div>
                         </div>
+                        <button class="btn btn-primary" type="submit">Submit</button>
                     </form>
                 </div>
                 <div class="col-lg-6 col-md-6">

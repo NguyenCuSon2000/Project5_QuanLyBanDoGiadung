@@ -212,8 +212,14 @@
                                     <label class="mr-2">Showing:</label>
                                     <form action="#">
                                         <fieldset>
-                                            <select name="speed" id="speed">
-                                                <option value="{{q}}" *ngFor="let q of quanlity">{{q}}</option>
+                                            <select name="speed" id="speed" [(ngModel)]="pageSize" (ngModelChange)="loadPage(1)">
+                                                <option selected value="3">3</option>
+                                                <option  value="5">5</option>
+                                                <option  value="10">10</option>
+                                                <option value="15">15</option>
+                                                <option value="20">20</option>
+                                                <option value="50">50</option>
+                                                <option value="100">100</option>
                                             </select>
                                         </fieldset>
                                     </form>
@@ -258,7 +264,7 @@
                                                         </a>
                                                         <div class="action-link">
                                                             <div class="action-link-left">
-                                                                <a href="#" data-bs-toggle="modal" data-bs-target="#modalAddcart">Add to Cart</a>
+                                                                <a (click)="addToCart(product)" data-bs-toggle="modal" data-bs-target="#modalAddcart">Add to Cart</a>
                                                             </div>
                                                             <div class="action-link-right">
                                                                 <a href="#" data-bs-toggle="modal" data-bs-target="#modalQuickview"><i class="icon-magnifier"></i></a>
@@ -312,7 +318,7 @@
                                                         <span class="product-list-price"><del>$30.12</del> {{product.giaBan}} VNĐ</span>
                                                         <p>{{product.moTa}}</p>
                                                         <div class="product-action-icon-link-list">
-                                                            <a href="#" data-bs-toggle="modal" data-bs-target="#modalAddcart" class="btn btn-lg btn-black-default-hover">Add to cart</a>
+                                                            <a href="#" data-bs-toggle="modal" (click)="addToCart(product)" data-bs-target="#modalAddcart" class="btn btn-lg btn-black-default-hover">Add to cart</a>
                                                             <a href="#" data-bs-toggle="modal" data-bs-target="#modalQuickview" class="btn btn-lg btn-black-default-hover"><i class="icon-magnifier"></i></a>
                                                             <a href="wishlist.html" class="btn btn-lg btn-black-default-hover"><i class="icon-heart"></i></a>
                                                             <a href="compare.html" class="btn btn-lg btn-black-default-hover"><i class="icon-shuffle"></i></a>

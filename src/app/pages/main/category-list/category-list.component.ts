@@ -10,20 +10,19 @@ import { BaseComponent } from '../../../core/base-component';
 export class CategoryListComponent extends BaseComponent implements OnInit {
   public list_category: any;
   public page = 1;
-  public pageSize = 4;
+  public pageSize = 3;
   public totalItems:any;
-  constructor(injector: Injector,private route: ActivatedRoute, private router: Router) { 
+  constructor(injector: Injector, private route: ActivatedRoute) {
     super(injector);
   }
 
   ngOnInit(): void {
+    window.scroll(0,0);
     this.route.params.subscribe(params => {
       let id = params['id'];
-      let name = params['name'];
       this._api.post('/api/LoaiSanPham/get-category-by-group',{page: this.page, pageSize: this.pageSize, manhom: id}).takeUntil(this.unsubscribe).subscribe(res => {
         this.list_category = res.data;
         this.totalItems = res.totalItems;
-        debugger;
         setTimeout(() => {
           this.loadScripts();
         });
@@ -34,11 +33,10 @@ export class CategoryListComponent extends BaseComponent implements OnInit {
   loadPage(page) { 
     this._route.params.subscribe(params => {
       let id = params['id'];
-      let name = params['name'];
       this._api.post('/api/LoaiSanPham/get-category-by-group', { page: page, pageSize: this.pageSize, manhom: id}).takeUntil(this.unsubscribe).subscribe(res => {
         this.list_category = res.data;
         this.totalItems = res.totalItems;
         }, err => { });       
-   });   
+   });
   }
 }

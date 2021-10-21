@@ -28,7 +28,6 @@ export class ProductListComponent extends BaseComponent implements OnInit {
       this._api.post('/api/SanPham/get-product-by-category',{page: this.page, pageSize: this.pageSize, maloai: id}).takeUntil(this.unsubscribe).subscribe(res => {
         this.list_item = res.data;
         this.totalItems = res.totalItems;
-        debugger;
         setTimeout(() => {
           this.loadScripts();
         });
@@ -44,5 +43,10 @@ export class ProductListComponent extends BaseComponent implements OnInit {
         this.totalItems = res.totalItems;
         }, err => { });       
    });   
+  }
+
+  addToCart(it) { 
+    this._cart.addToCart(it);
+    alert('Thêm thành công!'); 
   }
 }

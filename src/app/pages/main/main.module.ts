@@ -9,15 +9,16 @@ import { CommonModule } from '@angular/common';
 import { NgbModule, NgbPagination } from '@ng-bootstrap/ng-bootstrap';
 import { CategoryListComponent } from './category-list/category-list.component';
 import { FormsModule } from '@angular/forms';
+import { CoreModule } from '../../core/core.module';
 
 
 
 @NgModule({
   declarations: [HomeComponent, ProductListComponent,ProductDetailsComponent, AboutUsComponent, ContactUsComponent, CategoryListComponent],
   imports: [
-    CommonModule,
     NgbModule,
-    FormsModule,
+    CommonModule,
+    CoreModule,
     RouterModule.forChild([
       {
         path: '',

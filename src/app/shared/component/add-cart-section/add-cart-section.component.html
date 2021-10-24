@@ -17,22 +17,22 @@
                         <a href="#" class="offcanvas-cart-item-link">{{item.tenSanPham}}</a>
                         <div class="offcanvas-cart-item-details">
                             <span class="offcanvas-cart-item-details-quantity">{{item.quantity}} x </span>
-                            <span class="offcanvas-cart-item-details-price">{{item.giaBan}}</span>
+                            <span class="offcanvas-cart-item-details-price">{{item.giaBan | currency: "VND"}}</span>
                         </div>
                     </div>
                 </div>
                 <div class="offcanvas-cart-item-delete text-right">
-                    <a (click)="_cart.deleteItem(item.maSanPham)" class="offcanvas-cart-item-delete"><i class="fa fa-trash-o"></i></a>
+                    <button (click)="_cart.deleteItem(item.maSanPham)" class="offcanvas-cart-item-delete"><i class="fa fa-trash-o"></i></button>
                 </div>
             </li>
         </ul>
         <div class="offcanvas-cart-total-price">
             <span class="offcanvas-cart-total-price-text">Subtotal:</span>
-            <span class="offcanvas-cart-total-price-value">{{total}}</span>
+            <span class="offcanvas-cart-total-price-value">{{total | currency: "VND"}}</span>
         </div>
         <ul class="offcanvas-cart-action-button">
             <li><a routerLink="shopping/cart" routerLinkActive="active" class="btn btn-block btn-golden">View Cart</a></li>
-            <li><a routerLink="shopping/checkout" class=" btn btn-block btn-golden mt-5">Checkout</a></li>
+            <li><a routerLink="shopping/checkout" class=" btn btn-block btn-golden mt-5"  *ngIf="total>0">Thanh toán</a></li>
         </ul>
     </div> <!-- End  Offcanvas Addcart Wrapper -->
 

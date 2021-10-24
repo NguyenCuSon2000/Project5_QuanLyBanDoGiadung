@@ -60,7 +60,7 @@
                         <i class="fa fa-file-o" aria-hidden="true"></i>
                         Returning customer?
                         <a class="Returning" href="#" data-bs-toggle="collapse" data-bs-target="#checkout_coupon" aria-expanded="true">Click here to enter your code</a>
-
+                        
                     </h3>
                     <div id="checkout_coupon" class="collapse checkout_coupon" data-parent="#checkout_coupon">
                         <div class="checkout_info">
@@ -74,11 +74,12 @@
             </div>
             <!-- User Quick Action Form -->
         </div>
-        <!-- Start User Details Checkout Form -->
-        <div class="checkout_form" data-aos="fade-up"  data-aos-delay="400">
-            <div class="row">
-                <div class="col-lg-6 col-md-6">
-                    <form [formGroup]="frmCheckout" (ngSubmit)="onSubmit()">
+        
+        <form [formGroup]="frmCheckout" (ngSubmit)="onSubmit(frmCheckout.value)">
+            <!-- Start User Details Checkout Form -->
+            <div class="checkout_form" data-aos="fade-up"  data-aos-delay="400">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6">
                         <h3>Billing Details</h3>
                         <div class="row">
                             <div class="col-lg-6">
@@ -109,9 +110,12 @@
                                 <div class="default-form-box">
                                     <label>Địa chỉ</label>
                                     <input type="text" formControlName="txtDiaChi">
+                                    <div class="col alert alert-danger" role="alert" *ngIf="frmCheckout.controls.txtDiaChi.errors && frmCheckout.controls.txtDiaChi?.touched">
+                                        <div *ngIf="frmCheckout.controls.txtDiaChi?.errors?.required">Không được phép rỗng</div>
+                                    </div>  
                                 </div>
                             </div>
-                           
+                            
                             <div class="col-lg-6">
                                 <div class="default-form-box">
                                     <label>Số điện thoại<span>*</span></label>
@@ -148,7 +152,7 @@
                                     <input type="checkbox" id="newShipping">
                                     <span>Ship to a different address?</span>
                                 </label>
-
+                                
                                 <div id="anotherShipping" class="collapse mt-3" data-parent="#anotherShipping">
                                     <div class="row">
                                         <div class="col-lg-6">
@@ -184,7 +188,7 @@
                                                 </select>
                                             </div>
                                         </div>
-
+                                        
                                         <div class="col-12">
                                             <div class="default-form-box">
                                                 <label>Street address <span>*</span></label>
@@ -230,11 +234,8 @@
                                 </div>
                             </div>
                         </div>
-                        <button class="btn btn-primary" type="submit">Submit</button>
-                    </form>
-                </div>
-                <div class="col-lg-6 col-md-6">
-                    <form action="#">
+                    </div>
+                    <div class="col-lg-6 col-md-6">
                         <h3>Your order</h3>
                         <div class="order_table table-responsive">
                             <table>
@@ -245,21 +246,9 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td> Handbag fringilla <strong> × 2</strong></td>
-                                        <td> $165.00</td>
-                                    </tr>
-                                    <tr>
-                                        <td> Handbag justo <strong> × 2</strong></td>
-                                        <td> $50.00</td>
-                                    </tr>
-                                    <tr>
-                                        <td> Handbag elit <strong> × 2</strong></td>
-                                        <td> $50.00</td>
-                                    </tr>
-                                    <tr>
-                                        <td> Handbag Rutrum <strong> × 1</strong></td>
-                                        <td> $50.00</td>
+                                    <tr *ngFor="let item of items">
+                                        <td> {{item.tenSanPham}} <strong> × {{item.quantity}}</strong></td>
+                                        <td> {{item.giaBan | currency: "VND"}}</td>
                                     </tr>
                                 </tbody>
                                 <tfoot>
@@ -269,11 +258,11 @@
                                     </tr>
                                     <tr>
                                         <th>Shipping</th>
-                                        <td><strong>$5.00</strong></td>
+                                        <td><strong>0 đ</strong></td>
                                     </tr>
                                     <tr class="order_total">
                                         <th>Order Total</th>
-                                        <td><strong>$220.00</strong></td>
+                                        <td><strong>{{total| currency: "VND"}}</strong></td>
                                     </tr>
                                 </tfoot>
                             </table>
@@ -284,7 +273,7 @@
                                     <input type="checkbox" id="currencyCod">
                                     <span>Cash on Delivery</span>
                                 </label>
-
+                                
                                 <div id="methodCod" class="collapse" data-parent="#methodCod">
                                     <div class="card-body1">
                                         <p>Please send a check to Store Name, Store Street, Store Town, Store State / County, Store Postcode.</p>
@@ -303,12 +292,12 @@
                                 </div>
                             </div>
                             <div class="order_button pt-3">
-                                <button class="btn btn-md btn-black-default-hover" type="submit">Proceed to PayPal</button>
+                                <button class="btn btn-md btn-black-default-hover" type="submit" [disabled]="!frmCheckout.valid">Đặt hàng</button>
                             </div>
                         </div>
-                    </form>
+                    </div>
                 </div>
-            </div>
-        </div> <!-- Start User Details Checkout Form -->
+            </div> <!-- Start User Details Checkout Form -->
+        </form>
     </div>
 </div><!-- ...:::: End Checkout Section:::... -->

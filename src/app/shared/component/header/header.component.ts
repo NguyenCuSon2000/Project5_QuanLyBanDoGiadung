@@ -11,6 +11,7 @@ import 'rxjs/add/operator/takeUntil';
 export class HeaderComponent extends BaseComponent implements OnInit {
   public categories:any;
   public products_group:any;
+  total:any;
   constructor(injector: Injector) {
     super(injector);
    }
@@ -23,6 +24,10 @@ export class HeaderComponent extends BaseComponent implements OnInit {
     this._api.get('/api/NhomSanPham/get-all').takeUntil(this.unsubscribe).subscribe(res => {
       this.products_group = res;
     }); 
+
+    this._cart.items.subscribe((res) => {
+      this.total = res? res.length:0;
+    });
   }
 
 }

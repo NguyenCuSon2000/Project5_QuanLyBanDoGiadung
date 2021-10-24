@@ -12,13 +12,12 @@ export class ProductListComponent extends BaseComponent implements OnInit {
   public page = 1;
   public pageSize = 3;
   public totalItems:any;
-  public x:any;
-  public quanlity: Number[]|any;
+
 
   
   constructor(injector: Injector,private route: ActivatedRoute, private router: Router) { 
     super(injector);
-    this.quanlity = [5, 10, 15];
+    
   }
 
   ngOnInit(): void {

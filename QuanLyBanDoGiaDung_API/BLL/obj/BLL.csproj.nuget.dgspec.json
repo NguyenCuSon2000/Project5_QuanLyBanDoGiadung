@@ -1,0 +1,218 @@
+{
+  "format": 1,
+  "restore": {
+    "D:\\ĐỒ ÁN 5\\QuanLyBanDoGiaDung_API\\BLL\\BLL.csproj": {}
+  },
+  "projects": {
+    "D:\\ĐỒ ÁN 5\\QuanLyBanDoGiaDung_API\\BLL\\BLL.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\ĐỒ ÁN 5\\QuanLyBanDoGiaDung_API\\BLL\\BLL.csproj",
+        "projectName": "BLL",
+        "projectPath": "D:\\ĐỒ ÁN 5\\QuanLyBanDoGiaDung_API\\BLL\\BLL.csproj",
+        "packagesPath": "C:\\Users\\Test User\\.nuget\\packages\\",
+        "outputPath": "D:\\ĐỒ ÁN 5\\QuanLyBanDoGiaDung_API\\BLL\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Test User\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {
+              "D:\\ĐỒ ÁN 5\\QuanLyBanDoGiaDung_API\\DAL\\DAL.csproj": {
+                "projectPath": "D:\\ĐỒ ÁN 5\\QuanLyBanDoGiaDung_API\\DAL\\DAL.csproj"
+              },
+              "D:\\ĐỒ ÁN 5\\QuanLyBanDoGiaDung_API\\Model\\Model.csproj": {
+                "projectPath": "D:\\ĐỒ ÁN 5\\QuanLyBanDoGiaDung_API\\Model\\Model.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "dependencies": {
+            "Microsoft.IdentityModel.Tokens": {
+              "target": "Package",
+              "version": "[6.7.1, )"
+            },
+            "System.IdentityModel.Tokens.Jwt": {
+              "target": "Package",
+              "version": "[6.7.1, )"
+            },
+            "System.Security.Claims": {
+              "target": "Package",
+              "version": "[4.3.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.302\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\ĐỒ ÁN 5\\QuanLyBanDoGiaDung_API\\DAL\\DAL.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\ĐỒ ÁN 5\\QuanLyBanDoGiaDung_API\\DAL\\DAL.csproj",
+        "projectName": "DAL",
+        "projectPath": "D:\\ĐỒ ÁN 5\\QuanLyBanDoGiaDung_API\\DAL\\DAL.csproj",
+        "packagesPath": "C:\\Users\\Test User\\.nuget\\packages\\",
+        "outputPath": "D:\\ĐỒ ÁN 5\\QuanLyBanDoGiaDung_API\\DAL\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Test User\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {
+              "D:\\ĐỒ ÁN 5\\QuanLyBanDoGiaDung_API\\Model\\Model.csproj": {
+                "projectPath": "D:\\ĐỒ ÁN 5\\QuanLyBanDoGiaDung_API\\Model\\Model.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "dependencies": {
+            "Microsoft.Extensions.Configuration.Abstractions": {
+              "target": "Package",
+              "version": "[3.1.8, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[12.0.3, )"
+            },
+            "System.Data.SqlClient": {
+              "target": "Package",
+              "version": "[4.8.2, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.302\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\ĐỒ ÁN 5\\QuanLyBanDoGiaDung_API\\Model\\Model.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\ĐỒ ÁN 5\\QuanLyBanDoGiaDung_API\\Model\\Model.csproj",
+        "projectName": "Model",
+        "projectPath": "D:\\ĐỒ ÁN 5\\QuanLyBanDoGiaDung_API\\Model\\Model.csproj",
+        "packagesPath": "C:\\Users\\Test User\\.nuget\\packages\\",
+        "outputPath": "D:\\ĐỒ ÁN 5\\QuanLyBanDoGiaDung_API\\Model\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Test User\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.302\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

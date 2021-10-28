@@ -1,0 +1,45 @@
+C:\Users\Test User\source\repos\QuanLyBanDoGiaDung_API\DAL\bin\Debug\net5.0\DAL.deps.json
+C:\Users\Test User\source\repos\QuanLyBanDoGiaDung_API\DAL\bin\Debug\net5.0\DAL.dll
+C:\Users\Test User\source\repos\QuanLyBanDoGiaDung_API\DAL\bin\Debug\net5.0\ref\DAL.dll
+C:\Users\Test User\source\repos\QuanLyBanDoGiaDung_API\DAL\bin\Debug\net5.0\DAL.pdb
+C:\Users\Test User\source\repos\QuanLyBanDoGiaDung_API\DAL\bin\Debug\net5.0\Model.dll
+C:\Users\Test User\source\repos\QuanLyBanDoGiaDung_API\DAL\bin\Debug\net5.0\Model.pdb
+C:\Users\Test User\source\repos\QuanLyBanDoGiaDung_API\DAL\obj\Debug\net5.0\DAL.csproj.AssemblyReference.cache
+C:\Users\Test User\source\repos\QuanLyBanDoGiaDung_API\DAL\obj\Debug\net5.0\DAL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Test User\source\repos\QuanLyBanDoGiaDung_API\DAL\obj\Debug\net5.0\DAL.AssemblyInfoInputs.cache
+C:\Users\Test User\source\repos\QuanLyBanDoGiaDung_API\DAL\obj\Debug\net5.0\DAL.AssemblyInfo.cs
+C:\Users\Test User\source\repos\QuanLyBanDoGiaDung_API\DAL\obj\Debug\net5.0\DAL.csproj.CoreCompileInputs.cache
+C:\Users\Test User\source\repos\QuanLyBanDoGiaDung_API\DAL\obj\Debug\net5.0\DAL.csproj.CopyComplete
+C:\Users\Test User\source\repos\QuanLyBanDoGiaDung_API\DAL\obj\Debug\net5.0\DAL.dll
+C:\Users\Test User\source\repos\QuanLyBanDoGiaDung_API\DAL\obj\Debug\net5.0\ref\DAL.dll
+C:\Users\Test User\source\repos\QuanLyBanDoGiaDung_API\DAL\obj\Debug\net5.0\DAL.pdb
+D:\ĐỒ ÁN 5\QuanLyBanDoGiaDung_API\DAL\obj\Debug\net5.0\DAL.csproj.AssemblyReference.cache
+D:\ĐỒ ÁN 5\QuanLyBanDoGiaDung_API\DAL\obj\Debug\net5.0\DAL.GeneratedMSBuildEditorConfig.editorconfig
+D:\ĐỒ ÁN 5\QuanLyBanDoGiaDung_API\DAL\obj\Debug\net5.0\DAL.AssemblyInfoInputs.cache
+D:\ĐỒ ÁN 5\QuanLyBanDoGiaDung_API\DAL\obj\Debug\net5.0\DAL.AssemblyInfo.cs
+D:\ĐỒ ÁN 5\QuanLyBanDoGiaDung_API\DAL\obj\Debug\net5.0\DAL.csproj.CoreCompileInputs.cache
+D:\ĐỒ ÁN 5\QuanLyBanDoGiaDung_API\DAL\obj\Debug\net5.0\DAL.dll
+D:\ĐỒ ÁN 5\QuanLyBanDoGiaDung_API\DAL\obj\Debug\net5.0\ref\DAL.dll
+D:\ĐỒ ÁN 5\QuanLyBanDoGiaDung_API\DAL\obj\Debug\net5.0\DAL.pdb
+D:\ĐỒ ÁN 5\QuanLyBanDoGiaDung_API\DAL\bin\Debug\net5.0\DAL.deps.json
+D:\ĐỒ ÁN 5\QuanLyBanDoGiaDung_API\DAL\bin\Debug\net5.0\DAL.dll
+D:\ĐỒ ÁN 5\QuanLyBanDoGiaDung_API\DAL\bin\Debug\net5.0\ref\DAL.dll
+D:\ĐỒ ÁN 5\QuanLyBanDoGiaDung_API\DAL\bin\Debug\net5.0\DAL.pdb
+D:\ĐỒ ÁN 5\QuanLyBanDoGiaDung_API\DAL\bin\Debug\net5.0\Model.dll
+D:\ĐỒ ÁN 5\QuanLyBanDoGiaDung_API\DAL\bin\Debug\net5.0\Model.pdb
+D:\ĐỒ ÁN 5\QuanLyBanDoGiaDung_API\DAL\obj\Debug\net5.0\DAL.csproj.CopyComplete
+C:\Users\nguye\source\repos\BTLCuSon\BackEnd\DAL\bin\Debug\net5.0\DAL.deps.json
+C:\Users\nguye\source\repos\BTLCuSon\BackEnd\DAL\bin\Debug\net5.0\DAL.dll
+C:\Users\nguye\source\repos\BTLCuSon\BackEnd\DAL\bin\Debug\net5.0\ref\DAL.dll
+C:\Users\nguye\source\repos\BTLCuSon\BackEnd\DAL\bin\Debug\net5.0\DAL.pdb
+C:\Users\nguye\source\repos\BTLCuSon\BackEnd\DAL\bin\Debug\net5.0\Model.dll
+C:\Users\nguye\source\repos\BTLCuSon\BackEnd\DAL\bin\Debug\net5.0\Model.pdb
+C:\Users\nguye\source\repos\BTLCuSon\BackEnd\DAL\obj\Debug\net5.0\DAL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\nguye\source\repos\BTLCuSon\BackEnd\DAL\obj\Debug\net5.0\DAL.AssemblyInfoInputs.cache
+C:\Users\nguye\source\repos\BTLCuSon\BackEnd\DAL\obj\Debug\net5.0\DAL.AssemblyInfo.cs
+C:\Users\nguye\source\repos\BTLCuSon\BackEnd\DAL\obj\Debug\net5.0\DAL.csproj.CoreCompileInputs.cache
+C:\Users\nguye\source\repos\BTLCuSon\BackEnd\DAL\obj\Debug\net5.0\DAL.csproj.CopyComplete
+C:\Users\nguye\source\repos\BTLCuSon\BackEnd\DAL\obj\Debug\net5.0\DAL.dll
+C:\Users\nguye\source\repos\BTLCuSon\BackEnd\DAL\obj\Debug\net5.0\ref\DAL.dll
+C:\Users\nguye\source\repos\BTLCuSon\BackEnd\DAL\obj\Debug\net5.0\DAL.pdb
+C:\Users\nguye\source\repos\BTLCuSon\BackEnd\DAL\obj\Debug\net5.0\DAL.csproj.AssemblyReference.cache

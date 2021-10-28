@@ -64,6 +64,24 @@ export class ManageProductsComponent extends BaseComponent implements OnInit {
 
 
   }
+  delete(maSanPham:string)
+  {
+  console.log(maSanPham);
+    this._api.post('/api/SanPham/delete-product', { MaSanPham:maSanPham }).takeUntil(this.unsubscribe).subscribe(res => {
+      console.log("delete ok");
+      this.refesh();
+    },err=>{console.log(err)});
+  }
+  refesh()
+  {
+    this._api.post('/api/SanPham/product-all-paginate', { page: this.page, pageSize: this.pageSize }).takeUntil(this.unsubscribe).subscribe(res => {
+      this.products = res.data;
+      this.totalItems = res.totalItems;
+      setTimeout(() => {
+        this.loadScripts();
+      });
+    });
+  }
   CancelEdit() {
     this.product = "";
     this.displayAdd = false;

@@ -1,6 +1,32 @@
 import { Component, Injector, OnInit } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, ValidationErrors, Validators } from '@angular/forms';
+import { DiachiService } from '../../../core/service/diachi.service';
 import { BaseComponent } from '../../../core/base-component';
+import { first } from 'rxjs/operators';
+
+interface TinhTP {
+  maTP: string,
+  Ten: string,
+  Loai: string
+}
+
+interface QH {
+  maQH: string,
+  Ten: string,
+  Loai: string,
+  ViTri: string,
+  MaTinh: string
+}
+
+interface XP {
+  maXP: string,
+  Ten: string,
+  Loai: string,
+  ViTri: string,
+  MaQH: string
+}
+
+
 @Component({
   selector: 'app-checkout',
   templateUrl: './checkout.component.html',
@@ -13,18 +39,33 @@ export class CheckoutComponent extends BaseComponent implements OnInit {
   items:any;
   total:any;
   ngayDat:any;
-  constructor(injector: Injector) { 
+  diachi: any;
+  constructor(injector: Injector, private _DCService: DiachiService,) { 
     super(injector);
   }
+  // public categories: Category[];
+  // selectedCategory: Category;
+  // public brands: Brand[];
+  // selectedBrand: Brand;
+  public TinhTP: TinhTP[] | any;
+  public QH: QH[] | any;
+  public XP: XP[] | any;
+  
+  public selectedTinhTP: TinhTP ;
+  public selectedQH: QH ;
+  public selectedXP: XP ;
   
   ngOnInit(): void {
     window.scrollTo(0,0);
     var today = new Date();
-    this.ngayDat = today.toLocaleDateString();
+    this.ngayDat = today;
     this.frmCheckout = new FormGroup({
       txtHo: new FormControl('', [Validators.required, Validators.minLength(2), Validators.maxLength(50),Validators.pattern(this.namePattern)]),
       txtTen: new FormControl('', [Validators.required, Validators.minLength(2), Validators.maxLength(50),Validators.pattern(this.namePattern)]),
-      txtDiaChi: new FormControl('',[Validators.required]),
+      // txtDiaChi: new FormControl('',[Validators.required]),
+      tinh: new FormControl(''),
+      huyen: new FormControl(''),
+      xa: new FormControl(''),
       txtSDT: new FormControl('', [Validators.required, Validators.pattern(this.mobilePattern)]),
       txtEmail: new FormControl('', [this.CustomEmailValidator]),
     });
@@ -38,6 +79,35 @@ export class CheckoutComponent extends BaseComponent implements OnInit {
         this.total += x.quantity * x.giaBan;
       } 
     });
+    
+    this._DCService
+    .GetTinhTP()
+    .pipe(first())
+    .subscribe((res) => {
+      this.TinhTP = res;
+      console.log(this.TinhTP); 
+    });
+    
+  }
+  selectQH() {
+    this._DCService
+    .GetQH(this.selectedTinhTP.maTP)
+    .pipe(first())
+    .subscribe((res) => {
+      this.QH = res;
+    });
+  }
+  
+  selectXP() {
+    this._DCService
+    .GetXP(this.selectedQH.maQH)
+    .pipe(first())
+    .subscribe((res) => {
+      this.XP = res;
+    });
+  }
+  getDiaChi(){
+    this.diachi = this.selectedXP.Ten + ', ' + this.selectedQH.Ten + ', ' + this.selectedTinhTP.Ten;
   }
   public CustomEmailValidator(control: AbstractControl): ValidationErrors | null {
     if ((control.value || '').toString() == '') {
@@ -57,20 +127,23 @@ export class CheckoutComponent extends BaseComponent implements OnInit {
   
   public onSubmit(value: any) {
     let fullname = value.txtHo + ' ' + value.txtTen;
+    let address = value.tinh.ten + ' - ' + value.huyen.ten + ' - ' + value.xa.ten;
+    console.log(address);
     let hoadon = {
       hoTen: fullname, 
-      diaChiNhan:value.txtDiaChi,
+      diaChiNhan:address,
       SDTNhan:value.txtSDT,
       email:value.txtEmail, 
       tinhTrang: "Chờ xử lý",
       tongTien: this.total,
       ngayDat:  this.ngayDat,
       listjson_chitiet:this.items};
+      debugger;
       this._api.post('/api/DonHang/create-hoadon', hoadon).takeUntil(this.unsubscribe).subscribe(res => {
         alert('Tạo thành công');
         this._cart.clearCart();
       }, err => { });      
     }
-   
+    
   }
- 
+  

@@ -106,13 +106,53 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-12">
+                            
+                            <div class="col-lg-6">
                                 <div class="default-form-box">
-                                    <label>Địa chỉ</label>
-                                    <input type="text" formControlName="txtDiaChi">
-                                    <div class="col alert alert-danger" role="alert" *ngIf="frmCheckout.controls.txtDiaChi.errors && frmCheckout.controls.txtDiaChi?.touched">
-                                        <div *ngIf="frmCheckout.controls.txtDiaChi?.errors?.required">Không được phép rỗng</div>
-                                    </div>  
+                                    <label>Tỉnh/TP <span>*</span></label>
+                                    <p-dropdown [style]="{'width': '100%', 'height': '50%'}" [options]="TinhTP" formControlName="tinh" [(ngModel)]="selectedTinhTP" optionLabel="ten" [filter]="true" (onChange)="selectQH()"  filterBy="ten" [showClear]="true" placeholder="Tỉnh/Thành Phố" >
+                                        <ng-template pTemplate="selectedItem">
+                                            <div class="country-item country-item-value" *ngIf="selectedTinhTP">
+                                                <div>{{selectedTinhTP.Ten}}</div>
+                                            </div>
+                                        </ng-template>
+                                    </p-dropdown>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="default-form-box" >
+                                    <label>Quận/Huyện <span>*</span></label>
+                                    <div *ngIf="selectedTinhTP!=null">
+                                        <p-dropdown [style]="{'width': '100%'}" [options]="QH" formControlName="huyen" [(ngModel)]="selectedQH" optionLabel="ten" [filter]="true" (onChange)="selectXP()" filterBy="ten" [showClear]="true" placeholder="Quận/Huyện" class="p-inputtext-sm1">
+                                            <ng-template pTemplate="selectedItem">
+                                                <div class="country-item country-item-value" *ngIf="selectedQH">
+                                                    <div>{{selectedQH.Ten}}</div>
+                                                </div>
+                                            </ng-template>
+                                        </p-dropdown>
+                                    </div>
+                                    <div class="base4" *ngIf="selectedTinhTP==null">
+                                        <p-dropdown  [style]="{'width': '100%'}" [filter]="true" filterBy="ten" [showClear]="true" placeholder="Quận/Huyện" class="p-inputtext-sm1">
+                                        </p-dropdown>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="default-form-box" >
+                                    <label>Phường/Xã <span>*</span></label>
+                                    <div *ngIf="selectedQH!=null">
+                                        <p-dropdown formControlName="xa"  [style]="{'width': '100%'}" (onChange)="getDiaChi()" [options]="XP" [(ngModel)]="selectedXP" optionLabel="ten" [filter]="true" filterBy="ten" [showClear]="true" placeholder="Xã/Phường" class="p-inputtext-sm1">
+                                            <ng-template pTemplate="selectedItem">
+                                                <div class="country-item country-item-value" *ngIf="selectedXP">
+                                                    <div>{{selectedXP.Ten}}</div>
+                                                </div>
+                                            </ng-template>
+                                        </p-dropdown>
+                                    </div>
+                                    <div class="base2" *ngIf="selectedQH==null">
+                                        <p-dropdown  [style]="{'width': '100%'}"  [filter]="true" filterBy="ten" [showClear]="true" placeholder="Xã/Phường" class="p-inputtext-sm1">
+                                        </p-dropdown>
+                                    </div>
                                 </div>
                             </div>
                             
@@ -126,6 +166,12 @@
                                     </div>  
                                 </div>
                             </div>
+                            <!-- <div class="col-12">
+                                <div class="default-form-box">
+                                    <label>Địa chỉ</label>
+                                    <input type="text" formControlName="txtDiaChi">
+                                </div>
+                            </div> -->
                             <div class="col-lg-6">
                                 <div class="default-form-box">
                                     <label> Email <span>*</span></label>
@@ -292,7 +338,8 @@
                                 </div>
                             </div>
                             <div class="order_button pt-3">
-                                <button class="btn btn-md btn-black-default-hover" type="submit" [disabled]="!frmCheckout.valid">Đặt hàng</button>
+                                <!-- [disabled]="!frmCheckout.valid" -->
+                                <button class="btn btn-md btn-black-default-hover" type="submit" >Đặt hàng</button>
                             </div>
                         </div>
                     </div>

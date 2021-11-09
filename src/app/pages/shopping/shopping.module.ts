@@ -5,6 +5,7 @@ import { RouterModule } from '@angular/router';
 import { CartComponent } from './cart/cart.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
+import { DropdownModule } from 'primeng/dropdown';
 
 
 
@@ -18,6 +19,7 @@ import { LoginComponent } from './login/login.component';
     CommonModule,
     ReactiveFormsModule,
     FormsModule,
+    DropdownModule,
     RouterModule.forChild([
       {
         path: 'cart',

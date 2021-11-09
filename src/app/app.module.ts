@@ -6,6 +6,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
 import { HousingService } from './services/housing.service';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { FormsModule } from '@angular/forms';
+import {DropdownModule} from 'primeng/dropdown';
 
 
 @NgModule({
@@ -16,7 +19,11 @@ import { HousingService } from './services/housing.service';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    SharedModule
+    SharedModule,
+    BrowserAnimationsModule,
+    FormsModule,
+    DropdownModule
+
   ],
   providers: [
     HousingService

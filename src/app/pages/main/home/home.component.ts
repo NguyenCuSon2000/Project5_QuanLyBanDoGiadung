@@ -13,6 +13,8 @@ import 'rxjs/add/operator/takeUntil';
 })
 export class HomeComponent extends BaseComponent implements OnInit {
   public categories:any;
+  public product:any;
+  public blog:any;
   constructor(injector: Injector) {
     super(injector);
   }
@@ -24,5 +26,25 @@ export class HomeComponent extends BaseComponent implements OnInit {
         this.loadScripts();
       });
     }); 
+        this.getProductHome();
+        this.getBlogHome();
+  }
+
+  getProductHome()
+  {
+    this._api.get('/api/SanPham/get-home').takeUntil(this.unsubscribe).subscribe(res => {
+      this.product = res;
+      
+    }); 
+  }
+  getBlogHome()
+  {
+    this._api.get('/api/TinTuc/get-home').takeUntil(this.unsubscribe).subscribe(res => {
+      this.blog = res;
+    }); 
+  }
+  addToCart(it) { 
+    this._cart.addToCart(it);
+    alert('Thêm thành công!'); 
   }
 }

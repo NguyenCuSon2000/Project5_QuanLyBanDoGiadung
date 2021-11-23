@@ -3,6 +3,7 @@ import { AbstractControl, FormControl, FormGroup, ValidationErrors, Validators }
 import { DiachiService } from '../../../core/service/diachi.service';
 import { BaseComponent } from '../../../core/base-component';
 import { first } from 'rxjs/operators';
+import { AuthenticationService } from 'src/app/core/authentication.service';
 
 interface TinhTP {
   maTP: string,
@@ -40,13 +41,11 @@ export class CheckoutComponent extends BaseComponent implements OnInit {
   total:any;
   ngayDat:any;
   diachi: any;
-  constructor(injector: Injector, private _DCService: DiachiService,) { 
+  user:any;
+  constructor(injector: Injector, private _DCService: DiachiService, private authenticationService: AuthenticationService) { 
     super(injector);
   }
-  // public categories: Category[];
-  // selectedCategory: Category;
-  // public brands: Brand[];
-  // selectedBrand: Brand;
+  
   public TinhTP: TinhTP[] | any;
   public QH: QH[] | any;
   public XP: XP[] | any;
@@ -62,7 +61,6 @@ export class CheckoutComponent extends BaseComponent implements OnInit {
     this.frmCheckout = new FormGroup({
       txtHo: new FormControl('', [Validators.required, Validators.minLength(2), Validators.maxLength(50),Validators.pattern(this.namePattern)]),
       txtTen: new FormControl('', [Validators.required, Validators.minLength(2), Validators.maxLength(50),Validators.pattern(this.namePattern)]),
-      // txtDiaChi: new FormControl('',[Validators.required]),
       tinh: new FormControl(''),
       huyen: new FormControl(''),
       xa: new FormControl(''),
@@ -87,6 +85,12 @@ export class CheckoutComponent extends BaseComponent implements OnInit {
       this.TinhTP = res;
       console.log(this.TinhTP); 
     });
+
+    this.authenticationService.user.subscribe((res) => {
+      this.user = res;
+      console.log(this.user);
+      alert("Chuyển sang file test");
+    })
     
   }
   selectQH() {

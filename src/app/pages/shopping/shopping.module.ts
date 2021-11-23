@@ -6,6 +6,7 @@ import { CartComponent } from './cart/cart.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { DropdownModule } from 'primeng/dropdown';
+import { AuthGuard } from 'src/app/core/auth.guard';
 
 
 
@@ -27,7 +28,8 @@ import { DropdownModule } from 'primeng/dropdown';
       },
       {
         path:'checkout',
-        component: CheckoutComponent
+        component: CheckoutComponent,
+        canActivate: [AuthGuard]
       },
       {
         path:'register',

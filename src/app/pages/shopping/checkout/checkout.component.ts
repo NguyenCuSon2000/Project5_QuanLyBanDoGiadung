@@ -1,5 +1,6 @@
 import { Component, Injector, OnInit } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, ValidationErrors, Validators } from '@angular/forms';
+import { AuthenticationService } from 'src/app/core/authentication.service';
 import { BaseComponent } from '../../../core/base-component';
 @Component({
   selector: 'app-checkout',
@@ -13,7 +14,8 @@ export class CheckoutComponent extends BaseComponent implements OnInit {
   items:any;
   total:any;
   ngayDat:any;
-  constructor(injector: Injector) { 
+  user:any;
+  constructor(injector: Injector, private authenticationService: AuthenticationService) { 
     super(injector);
   }
   
@@ -28,7 +30,8 @@ export class CheckoutComponent extends BaseComponent implements OnInit {
       txtSDT: new FormControl('', [Validators.required, Validators.pattern(this.mobilePattern)]),
       txtEmail: new FormControl('', [this.CustomEmailValidator]),
     });
-    
+
+
     this._cart.items.subscribe((res) => {
       this.items = res;
       this.total = 0;
@@ -38,6 +41,13 @@ export class CheckoutComponent extends BaseComponent implements OnInit {
         this.total += x.quantity * x.giaBan;
       } 
     });
+
+    this.authenticationService.user.subscribe((res) => {
+      this.user = res;
+      console.log(this.user);
+      
+    })
+    
   }
   public CustomEmailValidator(control: AbstractControl): ValidationErrors | null {
     if ((control.value || '').toString() == '') {

@@ -28,17 +28,23 @@
             <div class="col-lg-6 col-md-6">
                 <div class="account_form" data-aos="fade-up"  data-aos-delay="0">
                     <h3>login</h3>
-                    <form action="#" method="POST">
+                    <form [formGroup]="frmLogin" (ngSubmit)="onSubmit()">
                         <div class="default-form-box">
-                            <label>Username or email <span>*</span></label>
-                            <input type="text">
+                            <label>Tài khoản <span>*</span></label>
+                            <input type="text" formControlName="TaiKhoan" placeholder="Nhập tài khoản">
+                        </div>
+                        <div *ngIf="submitted && f.TaiKhoan.errors" class="invalid-feedback">
+                            <div *ngIf="f.TaiKhoan.errors.required">Chưa nhập tài khoản!</div>
                         </div>
                         <div class="default-form-box">
-                            <label>Passwords <span>*</span></label>
-                            <input type="password">
+                            <label>Mật khẩu <span>*</span></label>
+                            <input type="password" formControlName="MatKhau" placeholder="Nhập mật khẩu">
+                        </div>
+                        <div *ngIf="submitted && f.MatKhau.errors" class="invalid-feedback">
+                            <div *ngIf="f.MatKhau.errors.required">Chưa nhập mật khẩu!</div>
                         </div>
                         <div class="login_submit">
-                            <button class="btn btn-md btn-black-default-hover mb-4" type="submit">login</button>
+                            <button class="btn btn-md btn-black-default-hover mb-4" type="submit" [disabled]="frmLogin.invalid || loading">Đăng nhập</button>
                             <label class="checkbox-default mb-4" for="offer">
                                 <input type="checkbox" id="offer">
                                 <span>Remember me</span>
@@ -55,14 +61,14 @@
             <div class="col-lg-6 col-md-6">
                 <div class="account_form register" data-aos="fade-up"  data-aos-delay="200">
                     <h3>Register</h3>
-                    <form [formGroup]="frmRegister">
+                    <form [formGroup]="frmLogin" (ngSubmit)="onSubmit()">
                         <div class="default-form-box">
-                            <label>Email address <span>*</span></label>
-                            <input type="text" formControlName="email">
+                            <label>Tài khoản <span>*</span></label>
+                            <input type="text" formControlName="TaiKhoan" placeholder="Nhập tài khoản">
                         </div>
                         <div class="default-form-box">
-                            <label>Passwords <span>*</span></label>
-                            <input type="password" formControlName="password">
+                            <label>Mật khẩu <span>*</span></label>
+                            <input type="password" formControlName="MatKhau" placeholder="Nhập mật khẩu">
                         </div>
                         <div class="login_submit">
                             <button class="btn btn-md btn-black-default-hover" type="submit">Register</button>

@@ -5,6 +5,7 @@ import { RouterModule } from '@angular/router';
 import { CartComponent } from './cart/cart.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
+import { AuthGuard } from 'src/app/core/auth.guard';
 
 
 
@@ -25,10 +26,11 @@ import { LoginComponent } from './login/login.component';
       },
       {
         path:'checkout',
-        component: CheckoutComponent
+        component: CheckoutComponent,
+        canActivate: [AuthGuard]
       },
       {
-        path:'register',
+        path:'login',
         component: LoginComponent
       }
     ])

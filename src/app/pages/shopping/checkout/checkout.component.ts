@@ -45,7 +45,7 @@ export class CheckoutComponent extends BaseComponent implements OnInit {
     this.authenticationService.user.subscribe((res) => {
       this.user = res;
       console.log(this.user);
-      
+      alert("Chuyển sang file test");
     })
     
   }

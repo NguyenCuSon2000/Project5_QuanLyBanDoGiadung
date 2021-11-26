@@ -10,7 +10,7 @@ import { BaseComponent } from '../../../core/base-component';
 export class ProductListComponent extends BaseComponent implements OnInit {
   public list_item: any;
   public page = 1;
-  public pageSize = 3;
+  public pageSize = 12;
   public totalItems:any;
 
 

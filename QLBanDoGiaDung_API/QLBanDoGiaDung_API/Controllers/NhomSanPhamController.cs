@@ -57,7 +57,7 @@ namespace QLBanDoGiaDung_API.Controllers
             }
             return response;
         }
-        [Route("create-category")]
+        [Route("create-product-group")]
         [HttpPost]
         public NhomSanPhamModel CreateNhom([FromBody] NhomSanPhamModel model)
         {
@@ -66,7 +66,7 @@ namespace QLBanDoGiaDung_API.Controllers
             return model;
         }
 
-        [Route("update-category")]
+        [Route("update-product-group")]
         [HttpPost]
         public NhomSanPhamModel UpdateNhom([FromBody] NhomSanPhamModel model)
         {
@@ -82,7 +82,7 @@ namespace QLBanDoGiaDung_API.Controllers
             return _nhomspBusiness.GetDatabyID(maloaisp);
         }
 
-        [Route("delete-category/{id}")]
+        [Route("delete-product-group/{id}")]
         [HttpDelete]
         public IActionResult DeleteCategory(string id)
         {
@@ -100,12 +100,10 @@ namespace QLBanDoGiaDung_API.Controllers
             {
                 var page = int.Parse(formData["page"].ToString());
                 var pageSize = int.Parse(formData["pageSize"].ToString());
-                string manhom = "";
-                if (formData.Keys.Contains("manhom") && !string.IsNullOrEmpty(Convert.ToString(formData["manhom"]))) { manhom = Convert.ToString(formData["manhom"]); }
-                string tennhom = "";
-                if (formData.Keys.Contains("tennhom") && !string.IsNullOrEmpty(Convert.ToString(formData["tennhom"]))) { tennhom = Convert.ToString(formData["tennhom"]); }
+                string tenNhom = "";
+                if (formData.Keys.Contains("tenNhom") && !string.IsNullOrEmpty(Convert.ToString(formData["tenNhom"]))) { tenNhom = Convert.ToString(formData["tenNhom"]); }
                 long total = 0;
-                var data = _nhomspBusiness.Search(page, pageSize, out total, manhom, tennhom);
+                var data = _nhomspBusiness.Search(page, pageSize, out total, tenNhom);
                 response.TotalItems = total;
                 response.Data = data;
                 response.Page = page;

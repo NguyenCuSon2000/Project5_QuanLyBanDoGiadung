@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\ĐỒ ÁN 5\\QLBanDoGiaDung_API\\Model\\Model.csproj",
+      "projectUniqueName": "D:\\ĐỒ ÁN 5\\QuanLyBanDoGiaDung\\QLBanDoGiaDung_API\\Model\\Model.csproj",
       "projectName": "Model",
-      "projectPath": "D:\\ĐỒ ÁN 5\\QLBanDoGiaDung_API\\Model\\Model.csproj",
+      "projectPath": "D:\\ĐỒ ÁN 5\\QuanLyBanDoGiaDung\\QLBanDoGiaDung_API\\Model\\Model.csproj",
       "packagesPath": "C:\\Users\\Test User\\.nuget\\packages\\",
-      "outputPath": "D:\\ĐỒ ÁN 5\\QLBanDoGiaDung_API\\Model\\obj\\",
+      "outputPath": "D:\\ĐỒ ÁN 5\\QuanLyBanDoGiaDung\\QLBanDoGiaDung_API\\Model\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

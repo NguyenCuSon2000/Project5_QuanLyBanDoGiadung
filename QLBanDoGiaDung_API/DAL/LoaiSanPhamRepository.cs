@@ -1,4 +1,4 @@
-﻿using DAL.Helper;
+using DAL.Helper;
 using Model;
 using Helper;
 using System.Collections.Generic;
@@ -97,7 +97,7 @@ namespace DAL
             try
             {
                 var result = _dbHelper.ExecuteScalarSProcedureWithTransaction(out msgError, "sp_product_category_delete",
-                "@maloaisp", maloaisp);
+                "@maloai", maloaisp);
                 if ((result != null && !string.IsNullOrEmpty(result.ToString())) || !string.IsNullOrEmpty(msgError))
                 {
                     throw new Exception(Convert.ToString(result) + msgError);
@@ -133,7 +133,7 @@ namespace DAL
         }
 
 
-        public List<LoaiSanPhamModel> Search(int pageIndex, int pageSize, out long total,string maloaisp, string tenloai)
+        public List<LoaiSanPhamModel> Search(int pageIndex, int pageSize, out long total,string tenLoai)
         {
             string msgError = "";
             total = 0;
@@ -142,8 +142,7 @@ namespace DAL
                 var dt = _dbHelper.ExecuteSProcedureReturnDataTable(out msgError, "sp_product_category_search",
                     "@page_index", pageIndex,
                     "@page_size", pageSize,
-                    "@maloaisp", maloaisp,
-                    "@tenloai", tenloai);
+                    "@tenLoai", tenLoai);
                 if (!string.IsNullOrEmpty(msgError))
                     throw new Exception(msgError);
                 if (dt.Rows.Count > 0) total = (long)dt.Rows[0]["RecordCount"];

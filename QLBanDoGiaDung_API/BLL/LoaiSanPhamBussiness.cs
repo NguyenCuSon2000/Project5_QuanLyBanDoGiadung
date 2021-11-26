@@ -1,4 +1,4 @@
-﻿using DAL;
+using DAL;
 using Microsoft.IdentityModel.Tokens;
 using Model;
 using System;
@@ -46,9 +46,9 @@ namespace BLL
         {
             return _res.Delete(maloaisp);
         }
-        public List<LoaiSanPhamModel> Search(int pageIndex, int pageSize, out long total, string maloaisp, string tenloai)
+        public List<LoaiSanPhamModel> Search(int pageIndex, int pageSize, out long total,  string tenLoai)
         {
-            return _res.Search(pageIndex, pageSize, out total, maloaisp, tenloai);
+            return _res.Search(pageIndex, pageSize, out total, tenLoai);
         }
         public List<LoaiSanPhamModel> GetCategoryByGroup(int pageIndex, int pageSize, out long total, string manhom)
         {

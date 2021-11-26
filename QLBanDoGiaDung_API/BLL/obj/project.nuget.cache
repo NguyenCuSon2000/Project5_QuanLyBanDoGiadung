@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "pKLekeW8O2P9WfUJ17gwOowsh1Gs7uU/deXY1y3yU/AhhMh7BTAHc8dqv5z0SeJ1edqK+77AeYAX9SGH0aQPSA==",
+  "dgSpecHash": "HkwDBRnw5/PZQPBSTbPkqfVPL6gMJKZesoZf3FiJVE273MJAbw9LYq7KhDH9E1UUA1p75C9Dbh7EeJb/kT/peA==",
   "success": true,
-  "projectFilePath": "D:\\ĐỒ ÁN 5\\QLBanDoGiaDung_API\\BLL\\BLL.csproj",
+  "projectFilePath": "D:\\ĐỒ ÁN 5\\QuanLyBanDoGiaDung\\QLBanDoGiaDung_API\\BLL\\BLL.csproj",
   "expectedPackageFiles": [
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\Test User\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\3.1.8\\microsoft.extensions.configuration.abstractions.3.1.8.nupkg.sha512",

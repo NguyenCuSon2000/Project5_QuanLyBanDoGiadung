@@ -1,4 +1,4 @@
-﻿using Model;
+using Model;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -13,7 +13,7 @@ namespace DAL
         bool Create(LoaiSanPhamModel model);
         bool Update(LoaiSanPhamModel model);
         bool Delete(string maloaisp);
-        List<LoaiSanPhamModel> Search(int pageIndex, int pageSize, out long total, string maloaisp, string tenloai);
+        List<LoaiSanPhamModel> Search(int pageIndex, int pageSize, out long total,  string tenLoai);
         List<LoaiSanPhamModel> GetCategoryByGroup(int pageIndex, int pageSize, out long total, string manhom);
     }
 }

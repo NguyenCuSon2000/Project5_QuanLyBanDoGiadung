@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "TFeDO9iRgG0YTjVAtnAp6ziuzxC88wFwK+t1roWhdYaf6yAfj83g1fGGPLLkTLK2nEDm8Qe+JgUm8oRz2cXoRg==",
+  "dgSpecHash": "vqvvjNlgv1yUKAUT8GAx/j/95zhfIbJ7z0Pgy96RlS0GsyZ4mGwxBQJp15A4B235uk1v0kX2TdzPyR2lE7WFEA==",
   "success": true,
-  "projectFilePath": "D:\\ĐỒ ÁN 5\\QLBanDoGiaDung_API\\QLBanDoGiaDung_API\\QLBanDoGiaDung_API.csproj",
+  "projectFilePath": "D:\\ĐỒ ÁN 5\\QuanLyBanDoGiaDung\\QLBanDoGiaDung_API\\QLBanDoGiaDung_API\\QLBanDoGiaDung_API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Test User\\.nuget\\packages\\cloudinarydotnet\\1.15.2\\cloudinarydotnet.1.15.2.nupkg.sha512",
     "C:\\Users\\Test User\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\3.1.8\\microsoft.aspnetcore.authentication.jwtbearer.3.1.8.nupkg.sha512",

@@ -1,4 +1,4 @@
-﻿using DAL;
+using DAL;
 using Microsoft.IdentityModel.Tokens;
 using Model;
 using System;
@@ -46,9 +46,9 @@ namespace BLL
         {
             return _res.Delete(maloaisp);
         }
-        public List<NhomSanPhamModel> Search(int pageIndex, int pageSize, out long total, string manhom, string tennhom)
+        public List<NhomSanPhamModel> Search(int pageIndex, int pageSize, out long total,  string tenNhom)
         {
-            return _res.Search(pageIndex, pageSize, out total, manhom, tennhom);
+            return _res.Search(pageIndex, pageSize, out total, tenNhom);
         }
        
     }

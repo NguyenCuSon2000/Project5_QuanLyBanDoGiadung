@@ -568,11 +568,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\ĐỒ ÁN 5\\QLBanDoGiaDung_API\\DAL\\DAL.csproj",
+      "projectUniqueName": "D:\\ĐỒ ÁN 5\\QuanLyBanDoGiaDung\\QLBanDoGiaDung_API\\DAL\\DAL.csproj",
       "projectName": "DAL",
-      "projectPath": "D:\\ĐỒ ÁN 5\\QLBanDoGiaDung_API\\DAL\\DAL.csproj",
+      "projectPath": "D:\\ĐỒ ÁN 5\\QuanLyBanDoGiaDung\\QLBanDoGiaDung_API\\DAL\\DAL.csproj",
       "packagesPath": "C:\\Users\\Test User\\.nuget\\packages\\",
-      "outputPath": "D:\\ĐỒ ÁN 5\\QLBanDoGiaDung_API\\DAL\\obj\\",
+      "outputPath": "D:\\ĐỒ ÁN 5\\QuanLyBanDoGiaDung\\QLBanDoGiaDung_API\\DAL\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -592,8 +592,8 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "D:\\ĐỒ ÁN 5\\QLBanDoGiaDung_API\\Model\\Model.csproj": {
-              "projectPath": "D:\\ĐỒ ÁN 5\\QLBanDoGiaDung_API\\Model\\Model.csproj"
+            "D:\\ĐỒ ÁN 5\\QuanLyBanDoGiaDung\\QLBanDoGiaDung_API\\Model\\Model.csproj": {
+              "projectPath": "D:\\ĐỒ ÁN 5\\QuanLyBanDoGiaDung\\QLBanDoGiaDung_API\\Model\\Model.csproj"
             }
           }
         }

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "8UWU1rf14liPEhDjO9SOYg7vZdBjW9OfihmIROsde0nQHxQnNJogliJ73vlIJTciPSMe/PWpKRFJ/x0v+BeipQ==",
+  "dgSpecHash": "qT87VA2dJ4alhp5LPkN5mnVZ2fmOL6e3YCLC8b48pUs/Qf0Txicny8Qkg4eQqoJ0/RHAAFz5ZA2PPwXlFPn6bg==",
   "success": true,
-  "projectFilePath": "D:\\ĐỒ ÁN 5\\QLBanDoGiaDung_API\\DAL\\DAL.csproj",
+  "projectFilePath": "D:\\ĐỒ ÁN 5\\QuanLyBanDoGiaDung\\QLBanDoGiaDung_API\\DAL\\DAL.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Test User\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\3.1.8\\microsoft.extensions.configuration.abstractions.3.1.8.nupkg.sha512",
     "C:\\Users\\Test User\\.nuget\\packages\\microsoft.extensions.primitives\\3.1.8\\microsoft.extensions.primitives.3.1.8.nupkg.sha512",

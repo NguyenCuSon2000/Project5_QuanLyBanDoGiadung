@@ -33,7 +33,7 @@ namespace QLBanDoGiaDung_API.Controllers
 
             if (user == null)
                 return BadRequest(new { message = "Username or password is incorrect" });
-            return Ok(new { maNguoiDung = user.MaNguoiDung, hoTen = user.HoTen, taiKhoan = user.TaiKhoan, token = user.token });
+            return Ok(user);
         }
 
         public string SaveFileFromBase64String(string RelativePathFileName, string dataFromBase64String)

@@ -4,6 +4,7 @@ import { DiachiService } from '../../../core/service/diachi.service';
 import { BaseComponent } from '../../../core/base-component';
 import { first } from 'rxjs/operators';
 import { AuthenticationService } from 'src/app/core/authentication.service';
+import { Router } from '@angular/router';
 
 interface TinhTP {
   maTP: string,
@@ -42,7 +43,11 @@ export class CheckoutComponent extends BaseComponent implements OnInit {
   ngayDat:any;
   diachi: any;
   user:any;
-  constructor(injector: Injector, private _DCService: DiachiService, private authenticationService: AuthenticationService) { 
+  constructor(
+    injector: Injector,
+     private _DCService: DiachiService,
+      private authenticationService: AuthenticationService,
+      private router: Router) { 
     super(injector);
   }
   
@@ -59,15 +64,15 @@ export class CheckoutComponent extends BaseComponent implements OnInit {
     var today = new Date();
     this.ngayDat = today;
     this.frmCheckout = new FormGroup({
-      txtHo: new FormControl('', [Validators.required, Validators.minLength(2), Validators.maxLength(50),Validators.pattern(this.namePattern)]),
-      txtTen: new FormControl('', [Validators.required, Validators.minLength(2), Validators.maxLength(50),Validators.pattern(this.namePattern)]),
-      tinh: new FormControl(''),
-      huyen: new FormControl(''),
-      xa: new FormControl(''),
+      txtHoTen: new FormControl('', [Validators.required, Validators.minLength(2), Validators.maxLength(50)]),
+      tinh: new FormControl('', [Validators.required]),
+      huyen: new FormControl('', [Validators.required]),
+      xa: new FormControl('', [Validators.required]),
+      txtDiaChi: new FormControl('', [Validators.required]),
       txtSDT: new FormControl('', [Validators.required, Validators.pattern(this.mobilePattern)]),
       txtEmail: new FormControl('', [this.CustomEmailValidator]),
     });
-    
+ 
     this._cart.items.subscribe((res) => {
       this.items = res;
       this.total = 0;
@@ -89,7 +94,6 @@ export class CheckoutComponent extends BaseComponent implements OnInit {
     this.authenticationService.user.subscribe((res) => {
       this.user = res;
       console.log(this.user);
-      alert("Chuyển sang file test");
     })
     
   }
@@ -130,22 +134,22 @@ export class CheckoutComponent extends BaseComponent implements OnInit {
   }
   
   public onSubmit(value: any) {
-    let fullname = value.txtHo + ' ' + value.txtTen;
-    let address = value.tinh.ten + ' - ' + value.huyen.ten + ' - ' + value.xa.ten;
-    console.log(address);
+    // let fullname = value.txtHo + ' ' + value.txtTen;
+    let address = value.xa.ten + ' - ' + value.huyen.ten + ' - ' + value.tinh.ten;
+    console.log(value.txtDiaChi + ' - ' + address);
     let hoadon = {
-      hoTen: fullname, 
-      diaChiNhan:address,
+      hoTen: value.txtHoTen, 
+      diaChiNhan: '(' + value.txtDiaChi + ' ) ' + address,
       SDTNhan:value.txtSDT,
       email:value.txtEmail, 
       tinhTrang: "Chờ xử lý",
       tongTien: this.total,
       ngayDat:  this.ngayDat,
       listjson_chitiet:this.items};
-      debugger;
       this._api.post('/api/DonHang/create-hoadon', hoadon).takeUntil(this.unsubscribe).subscribe(res => {
         alert('Tạo thành công');
         this._cart.clearCart();
+        this.router.navigate(['/']);
       }, err => { });      
     }
     

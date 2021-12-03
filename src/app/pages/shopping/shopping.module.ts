@@ -32,7 +32,7 @@ import { AuthGuard } from 'src/app/core/auth.guard';
         canActivate: [AuthGuard]
       },
       {
-        path:'register',
+        path:'login',
         component: LoginComponent
       }
     ])

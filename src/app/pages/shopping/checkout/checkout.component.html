@@ -81,33 +81,19 @@
                 <div class="row">
                     <div class="col-lg-6 col-md-6">
                         <h3>Billing Details</h3>
-                        <h1>{{user.hoTen}}</h1>
                         <div class="row">
                             <div class="col-lg-6">
                                 <div class="default-form-box">
-                                    <label>Họ <span>*</span></label>
-                                    <input type="text" formControlName="txtHo">
-                                    <div class="col alert alert-danger" role="alert" *ngIf="frmCheckout.controls.txtHo.errors && frmCheckout.controls.txtHo?.touched">
-                                        <div *ngIf="frmCheckout.controls.txtHo?.errors?.required">Không được phép rỗng</div>
-                                        <div *ngIf="frmCheckout.controls.txtHo?.errors?.minlength">Độ dài phải 2 - 50 ký tự</div>
-                                        <div *ngIf="frmCheckout.controls.txtHo?.errors?.maxlength">Độ dài phải 2 - 50 ký tự</div>
-                                        <div *ngIf="frmCheckout.controls.txtHo?.errors?.pattern">Họ không chứa ký tự đặc biệt</div>
+                                    <label>Họ và tên<span>*</span></label>
+                                    <input type="text" formControlName="txtHoTen" [(ngModel)]="user.hoTen">
+                                    <div class="col alert alert-danger" role="alert" *ngIf="frmCheckout.controls.txtHoTen.errors && frmCheckout.controls.txtHoTen?.touched">
+                                        <div *ngIf="frmCheckout.controls.txtHoTen?.errors?.required">Không được phép rỗng</div>
+                                        <div *ngIf="frmCheckout.controls.txtHoTen?.errors?.minlength">Độ dài phải 2 - 50 ký tự</div>
+                                        <div *ngIf="frmCheckout.controls.txtHoTen?.errors?.maxlength">Độ dài phải 2 - 50 ký tự</div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-6">
-                                <div class="default-form-box">
-                                    <label>Tên <span>*</span></label>
-                                    <input type="text" formControlName="txtTen">
-                                    <div class="col alert alert-danger" role="alert" *ngIf="frmCheckout.controls.txtTen.errors && frmCheckout.controls.txtTen?.touched">
-                                        <div *ngIf="frmCheckout.controls.txtTen?.errors?.required">Không được phép rỗng</div>
-                                        <div *ngIf="frmCheckout.controls.txtTen?.errors?.minlength">Độ dài phải 2 - 50 ký tự</div>
-                                        <div *ngIf="frmCheckout.controls.txtTen?.errors?.maxlength">Độ dài phải 2 - 50 ký tự</div>
-                                        <div *ngIf="frmCheckout.controls.txtTen?.errors?.pattern">Tên không chứa ký tự đặc biệt</div>
-                                    </div>
-                                </div>
-                            </div>
-                            
+                           
                             <div class="col-lg-6">
                                 <div class="default-form-box">
                                     <label>Tỉnh/TP <span>*</span></label>
@@ -118,6 +104,9 @@
                                             </div>
                                         </ng-template>
                                     </p-dropdown>
+                                    <div class="col alert alert-danger" role="alert" *ngIf="frmCheckout.controls.tinh.errors && frmCheckout.controls.tinh?.touched">
+                                        <div *ngIf="frmCheckout.controls.tinh?.errors?.required">Không được phép rỗng</div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-lg-6">
@@ -131,6 +120,9 @@
                                                 </div>
                                             </ng-template>
                                         </p-dropdown>
+                                        <div class="col alert alert-danger" role="alert" *ngIf="frmCheckout.controls.huyen.errors && frmCheckout.controls.huyen?.touched">
+                                            <div *ngIf="frmCheckout.controls.huyen?.errors?.required">Không được phép rỗng</div>
+                                        </div>
                                     </div>
                                     <div class="base4" *ngIf="selectedTinhTP==null">
                                         <p-dropdown  [style]="{'width': '100%'}" [filter]="true" filterBy="ten" [showClear]="true" placeholder="Quận/Huyện" class="p-inputtext-sm1">
@@ -149,6 +141,9 @@
                                                 </div>
                                             </ng-template>
                                         </p-dropdown>
+                                        <div class="col alert alert-danger" role="alert" *ngIf="frmCheckout.controls.xa.errors && frmCheckout.controls.xa?.touched">
+                                            <div *ngIf="frmCheckout.controls.xa?.errors?.required">Không được phép rỗng</div>
+                                        </div>
                                     </div>
                                     <div class="base2" *ngIf="selectedQH==null">
                                         <p-dropdown  [style]="{'width': '100%'}"  [filter]="true" filterBy="ten" [showClear]="true" placeholder="Xã/Phường" class="p-inputtext-sm1">
@@ -156,7 +151,15 @@
                                     </div>
                                 </div>
                             </div>
-                            
+                            <div class="col-lg-6">
+                                <div class="default-form-box">
+                                    <label>Địa chỉ chi tiết<span>*</span></label>
+                                    <input type="text" formControlName="txtDiaChi" [(ngModel)]="user.diaChi"  >
+                                    <div class="col alert alert-danger" role="alert" *ngIf="frmCheckout.controls.txtDiaChi.errors && frmCheckout.controls.txtDiaChi?.touched">
+                                        <div *ngIf="frmCheckout.controls.txtDiaChi?.errors?.required">Không được phép rỗng</div>
+                                    </div>  
+                                </div>
+                            </div>
                             <div class="col-lg-6">
                                 <div class="default-form-box">
                                     <label>Số điện thoại<span>*</span></label>
@@ -167,16 +170,10 @@
                                     </div>  
                                 </div>
                             </div>
-                            <!-- <div class="col-12">
-                                <div class="default-form-box">
-                                    <label>Địa chỉ</label>
-                                    <input type="text" formControlName="txtDiaChi">
-                                </div>
-                            </div> -->
                             <div class="col-lg-6">
                                 <div class="default-form-box">
                                     <label> Email <span>*</span></label>
-                                    <input type="text" formControlName="txtEmail">
+                                    <input type="text" formControlName="txtEmail"  [(ngModel)]="user.email"  >
                                     <div class="col alert alert-danger" role="alert" *ngIf="frmCheckout.controls.txtEmail.errors && frmCheckout.controls.txtEmail?.touched">
                                         <div *ngIf="frmCheckout.controls.txtEmail?.errors?.txtEmail">Không phải định dạng email</div>
                                     </div>
@@ -340,7 +337,7 @@
                             </div>
                             <div class="order_button pt-3">
                                 <!-- [disabled]="!frmCheckout.valid" -->
-                                <button class="btn btn-md btn-black-default-hover" type="submit" >Đặt hàng</button>
+                                <button class="btn btn-md btn-black-default-hover" [disabled]="!frmCheckout.valid" type="submit" >Đặt hàng</button>
                             </div>
                         </div>
                     </div>

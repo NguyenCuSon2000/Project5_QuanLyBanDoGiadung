@@ -119,7 +119,9 @@ namespace QLBanDoGiaDung_API
             services.AddTransient<INguoiDungRepository, NguoiDungRepository>();
             services.AddTransient<IDiaChiBussiness, DiaChiBussiness>();
             services.AddTransient<IDiaChiRepository, DiaChiRepository>();
-        }
+            services.AddTransient<IThongKeBussiness, ThongKeBussiness>();
+            services.AddTransient<IThongKeRepository, ThongKeRepository>();
+          }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -135,13 +137,10 @@ namespace QLBanDoGiaDung_API
                         .AllowAnyOrigin()
                         .AllowAnyMethod()
                         .AllowAnyHeader());
-            app.UseAuthentication();
+           
             app.UseHttpsRedirection();
-
-
-
+            app.UseAuthentication();
             app.UseAuthorization();
-
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();

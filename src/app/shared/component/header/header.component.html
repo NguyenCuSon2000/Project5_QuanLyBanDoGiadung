@@ -310,6 +310,7 @@
                 <li><a href="wishlist.html">Wishlist</a></li>
                 <li><a [routerLinkActiveOptions]="{exact:true}" routerLinkActive="active" routerLink="shopping/cart">Cart</a></li>
                 <li><a routerLink="shopping/checkout">Checkout</a></li>
+                <li><a (click)="onLogOut()">Logout</a></li>
             </ul>
         </div>
         <!-- End Mobile contact Info -->
@@ -345,8 +346,9 @@
         
         <ul class="user-link">
             <li><a href="wishlist.html">Wishlist</a></li>
-            <li><a href="cart.html">Cart</a></li>
-            <li><a href="checkout.html">Checkout</a></li>
+            <li><a [routerLinkActiveOptions]="{exact:true}" routerLinkActive="active" routerLink="shopping/cart">Cart</a></li>
+            <li><a routerLink="shopping/checkout">Checkout</a></li>
+            <li><a style="cursor: pointer;" (click)="onLogOut()">Logout</a></li>
         </ul>
     </div>
     <!-- End Mobile contact Info -->

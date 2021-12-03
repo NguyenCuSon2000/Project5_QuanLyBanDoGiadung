@@ -27,7 +27,7 @@
             <!--login area start-->
             <div class="col-lg-6 col-md-6">
                 <div class="account_form" data-aos="fade-up"  data-aos-delay="0">
-                    <h3>login</h3>
+                    <h3>Đăng nhập</h3>
                     <form [formGroup]="frmLogin" (ngSubmit)="onSubmit()">
                         <div class="default-form-box">
                             <label>Tài khoản <span>*</span></label>
@@ -42,6 +42,14 @@
                         </div>
                         <div *ngIf="submitted && f.MatKhau.errors" class="invalid-feedback">
                             <div *ngIf="f.MatKhau.errors.required">Chưa nhập mật khẩu!</div>
+                        </div>
+                        <div class="default-form-box">
+                            <label class="form-label" for="hoten">Nhập lại Mật khẩu</label>
+                            <input type="password" class="form-control" formControlName="NhapLaiMatKhau" id="MatKhau" placeholder="Nhập lại mật khẩu">
+                            <div *ngIf="submitted && f.NhapLaiMatKhau.errors" class="invalid-feedback">
+                                <div *ngIf="f.NhapLaiMatKhau.errors.required">Xác nhận lại mật khẩu là bắt buộc</div>
+                                <div *ngIf="f.NhapLaiMatKhau.errors.mustMatch">Xác thực lại mật khẩu không đúng</div>
+                            </div>
                         </div>
                         <div class="login_submit">
                             <button class="btn btn-md btn-black-default-hover mb-4" type="submit" [disabled]="frmLogin.invalid || loading">Đăng nhập</button>
@@ -60,18 +68,65 @@
             <!--register area start-->
             <div class="col-lg-6 col-md-6">
                 <div class="account_form register" data-aos="fade-up"  data-aos-delay="200">
-                    <h3>Register</h3>
-                    <form [formGroup]="frmLogin" (ngSubmit)="onSubmit()">
+                    <h3>Đăng ký</h3>
+                    <form [formGroup]="frmRegister" (ngSubmit)="onRegister(frmRegister.value)">
                         <div class="default-form-box">
-                            <label>Tài khoản <span>*</span></label>
-                            <input type="text" formControlName="TaiKhoan" placeholder="Nhập tài khoản">
+                            <label class="form-label" for="hoten">Họ tên</label>
+                            <input type="text" class="form-control" formControlName="HoTen" id="hoten" placeholder="Nhập họ tên">
+                            <label class="col alert alert-danger" role="alert" *ngIf="frmRegister.controls.HoTen?.errors?.required  && frmRegister.controls.Hoten?.touched " >
+                                Họ tên là rỗng hoặc không đúng định dạng!
+                            </label>
                         </div>
                         <div class="default-form-box">
-                            <label>Mật khẩu <span>*</span></label>
-                            <input type="password" formControlName="MatKhau" placeholder="Nhập mật khẩu">
+                            <label class="form-label" for="hoten">Ngày sinh</label>
+                            <input type="date" class="form-control" formControlName="NgaySinh" id="NgaySinh" placeholder="Nhập họ tên">
+                        </div>
+                        <div class="default-form-box">
+                            <label class="form-label" for="hoten">Địa chỉ</label>
+                            <input type="text" class="form-control" formControlName="DiaChi" id="DiaChi" placeholder="Nhập họ tên">
+                            <label class="col alert alert-danger" role="alert" *ngIf="frmRegister.controls.DiaChi?.errors?.required  && frmRegister.controls.DiaChi?.touched " >
+                                Địa chỉ là rỗng hoặc không đúng định dạng!
+                            </label>
+                        </div>
+                        <div class="default-form-box">
+                            <label class="form-label" for="hoten">Giới tính</label>
+                            <select class="form-control" name="" id="" formControlName="GioiTinh"  >
+                                <option value="Nam">Nam</option>
+                                <option value="Nữ">Nữ</option>
+                                <option value="Khác">Khác</option>
+                            </select>
+                        </div>
+                        <div class="default-form-box">
+                            <label class="form-label" for="hoten">Email</label>
+                            <input type="email" class="form-control" formControlName="Email" id="Email" placeholder="Nhập email">
+                            <label class="col alert alert-danger" role="alert" *ngIf="frmRegister.controls.Email?.errors?.required  && frmRegister.controls.Email?.touched " >
+                                Email là rỗng hoặc không đúng định dạng!
+                            </label>
+                        </div>
+                        <div class="default-form-box">
+                            <label class="form-label" for="hoten">Tài khoản</label>
+                            <input type="text" class="form-control" formControlName="TaiKhoan" id="TaiKhoan" placeholder="Nhập tài khoản">
+                            <label class="col alert alert-danger" role="alert" *ngIf="frmRegister.controls.TaiKhoan?.errors?.required  && frmRegister.controls.TaiKhoan?.touched " >
+                                Tài khoản là rỗng hoặc không đúng định dạng!
+                            </label>
+                        </div>
+                        <div class="default-form-box">
+                            <label class="form-label" for="hoten">Mật khẩu</label>
+                            <input type="password" class="form-control" formControlName="MatKhau" id="MatKhau" placeholder="Nhập mật khẩu">
+                            <label class="col alert alert-danger" role="alert" *ngIf="frmRegister.controls.MatKhau?.errors?.required  && frmRegister.controls.MatKhau?.touched " >
+                               Mật khẩu là rỗng hoặc không đúng định dạng!
+                            </label>
+                        </div>
+                        <div class="default-form-box">
+                            <label class="form-label" for="hoten">Nhập lại Mật khẩu</label>
+                            <input type="password" class="form-control" formControlName="NhapLaiMatKhau" id="NhapLaiMatKhau" placeholder="Nhập lại mật khẩu">
+                            <div *ngIf="submitted && frmRegister.controls.NhapLaiMatKhau.errors" class="invalid-feedback">
+                                <div *ngIf="frmRegister.controls.NhapLaiMatKhau.errors.required">Xác nhận lại mật khẩu là bắt buộc</div>
+                                <div *ngIf="frmRegister.controls.NhapLaiMatKhau.errors.mustMatch">Xác thực lại mật khẩu không đúng</div>
+                            </div>
                         </div>
                         <div class="login_submit">
-                            <button class="btn btn-md btn-black-default-hover" type="submit">Register</button>
+                            <button class="btn btn-md btn-black-default-hover" [disabled]="frmRegister.invalid || loading" type="submit">Đăng ký</button>
                         </div>
                     </form>
                 </div>

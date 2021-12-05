@@ -10,11 +10,13 @@ import { NgbModule, NgbPagination } from '@ng-bootstrap/ng-bootstrap';
 import { CategoryListComponent } from './category-list/category-list.component';
 import { FormsModule } from '@angular/forms';
 import { CoreModule } from '../../core/core.module';
+import { BlogListComponent } from './blog-list/blog-list.component';
+import { BlogDetailsComponent } from './blog-details/blog-details.component';
 
 
 
 @NgModule({
-  declarations: [HomeComponent, ProductListComponent,ProductDetailsComponent, AboutUsComponent, ContactUsComponent, CategoryListComponent],
+  declarations: [HomeComponent, ProductListComponent,ProductDetailsComponent, AboutUsComponent, ContactUsComponent, CategoryListComponent, BlogListComponent, BlogDetailsComponent],
   imports: [
     NgbModule,
     CommonModule,
@@ -35,6 +37,14 @@ import { CoreModule } from '../../core/core.module';
       {
         path:'category-list/:id',
         component: CategoryListComponent
+      },
+      {
+        path:'blog-list',
+        component: BlogListComponent
+      },
+      {
+        path:'blog-details/:id',
+        component: BlogDetailsComponent
       },
       {
         path:'about-us',

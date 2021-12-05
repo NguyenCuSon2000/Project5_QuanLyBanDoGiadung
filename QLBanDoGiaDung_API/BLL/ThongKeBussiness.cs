@@ -27,21 +27,33 @@ namespace BLL
             return _res.GetSanPhamBanChay(pageIndex, pageSize,out total, tenSanPham);
         }
 
-        //public string GetSoLuongSanPham()
-        //{
-        //    return _res.GetSoLuongSanPham();
-        //}
-        //public string GetSoLuongLoaiSP()
-        //{
-        //    return _res.GetSoLuongLoaiSP();
-        //}
-        //public string GetSoLuongHoaDon()
-        //{
-        //    return _res.GetSoLuongHoaDon();
-        //}
-        //public string GetSoLuongNguoiDung()
-        //{
-        //    return _res.GetSoLuongNguoiDung();
-        //}
+    public string GetSoLuongSanPham()
+    {
+      return _res.GetSoLuongSanPham();
     }
+    public string GetSoLuongLoaiSP()
+    {
+      return _res.GetSoLuongLoaiSP();
+    }
+    public string GetSoLuongNhomSP()
+    {
+      return _res.GetSoLuongNhomSP();
+    }
+    public string GetSoLuongHangSP()
+    {
+      return _res.GetSoLuongHangSP();
+    }
+    public string GetSoLuongDonHang()
+    {
+      return _res.GetSoLuongDonHang();
+    }
+    public string GetSoLuongNguoiDung()
+    {
+      return _res.GetSoLuongNguoiDung();
+    }
+    public string GetSoLuongTinTuc()
+    {
+      return _res.GetSoLuongTinTuc();
+    }
+  }
 }

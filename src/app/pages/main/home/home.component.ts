@@ -13,6 +13,11 @@ import 'rxjs/add/operator/takeUntil';
 })
 export class HomeComponent extends BaseComponent implements OnInit {
   public categories:any;
+  public products:any;
+  public blogs:any;
+  public products_best_selling:any;
+  public page = 1;
+  public pageSize = 10;
   constructor(injector: Injector) {
     super(injector);
   }
@@ -24,5 +29,18 @@ export class HomeComponent extends BaseComponent implements OnInit {
         this.loadScripts();
       });
     }); 
+    this._api.post('/api/ThongKe/get-sanpham-banchay',{page: this.page, pageSize: this.pageSize}).takeUntil(this.unsubscribe).subscribe(res => {
+      this.products_best_selling = res.data;
+    });
+    this._api.post('/api/SanPham/search',{page: this.page, pageSize: this.pageSize}).takeUntil(this.unsubscribe).subscribe(res => {
+      this.products = res.data;
+    });
+    this._api.post('/api/TinTuc/search',{page: this.page, pageSize: this.pageSize}).takeUntil(this.unsubscribe).subscribe(res => {
+      this.blogs = res.data;
+    });
+  }
+  addToCart(it) { 
+    this._cart.addToCart(it);
+    alert('Thêm thành công!'); 
   }
 }

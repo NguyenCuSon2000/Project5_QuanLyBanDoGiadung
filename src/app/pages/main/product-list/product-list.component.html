@@ -213,7 +213,7 @@
                                     
                                     <fieldset>
                                         <select class="form-control" [(ngModel)]="pageSize" (ngModelChange)="loadPage(1)">
-                                            <option selected value="3">3</option>
+                                            <option selected="selected" value="3">3</option>
                                             <option value="5">5</option>
                                             <option value="10">10</option>
                                             <option value="20">20</option>
@@ -301,8 +301,8 @@
                                                 <!-- Start Product Defautlt Single -->
                                                 <div class="product-list-single product-color--golden">
                                                     <a routerLink="/product-details/{{product.maSanPham}}" class="product-list-img-link">
-                                                        <img class="img-fluid" src="assets/images/product/default/home-1/default-1.jpg" alt="">
-                                                        <img class="img-fluid" src="assets/images/product/default/home-1/default-2.jpg" alt="">
+                                                        <img src="assets/images/img/{{product.anh}}" alt="">
+                                                        <img src="assets/images/img/{{product.anh}}" alt="">
                                                     </a>
                                                     <div class="product-list-content">
                                                         <h5 class="product-list-link"><a routerLink="/product-details/{{product.maSanPham}}">{{product.tenSanPham}}</a></h5>
@@ -338,12 +338,6 @@
                 </div> -->
                 <div class="page-pagination text-center" data-aos="fade-up"  data-aos-delay="0">
                     <ngb-pagination [collectionSize]="totalItems" [pageSize]="pageSize" [(page)]="page" [maxSize]="5" [rotate]="true" (pageChange)="loadPage($event)"></ngb-pagination>
-                    <!-- <ul>
-                        <li><a class="active" href="#">1</a></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#"><i class="ion-ios-skipforward"></i></a></li>
-                    </ul> -->
                 </div>
                 <!-- End Pagination -->
             </div>

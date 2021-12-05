@@ -53,33 +53,50 @@ namespace QLBanDoGiaDung_API.Controllers
           }
           return response;
         }
-    //[Route("get-soluong-sanpham")]
-    //[HttpGet]
-    //public string GetSoLuongSanPham()
-    //{
-    //    return _spBusiness.GetSoLuongSanPham();
-    //}
+        [Route("get-SLSP")]
+        [HttpGet]
+        public string GetSoLuongSanPham()
+        {
+          return _spBusiness.GetSoLuongSanPham();
+        }
 
-    //[Route("get-soluong-loaisanpham")]
-    //[HttpGet]
-    //public string GetSoLuongLoaiSP()
-    //{
-    //    return _spBusiness.GetSoLuongLoaiSP();
-    //}
+        [Route("get-SLLSP")]
+        [HttpGet]
+        public string GetSoLuongLoaiSP()
+        {
+          return _spBusiness.GetSoLuongLoaiSP();
+        }
+        [Route("get-SLNSP")]
+        [HttpGet]
+        public string GetSoLuongNhomSP()
+        {
+          return _spBusiness.GetSoLuongNhomSP();
+        }
+        [Route("get-SLHSP")]
+        [HttpGet]
+        public string GetSoLuongHangSP()
+        {
+          return _spBusiness.GetSoLuongHangSP();
+        }
 
-    //[Route("get-soluong-hoadon")]
-    //[HttpGet]
-    //public string GetSoLuongHoaDon()
-    //{
-    //    return _spBusiness.GetSoLuongHoaDon();
-    //}
+        [Route("get-SLDH")]
+        [HttpGet]
+        public string GetSoLuongDonHang()
+        {
+          return _spBusiness.GetSoLuongDonHang();
+        }
 
-    //[Route("get-soluong-nguoidung")]
-    //[HttpGet]
-    //public string GetSoLuongNguoiDung()
-    //{
-    //    return _spBusiness.GetSoLuongNguoiDung();
-    //}
-
+        [Route("get-SLND")]
+        [HttpGet]
+        public string GetSoLuongNguoiDung()
+        {
+          return _spBusiness.GetSoLuongNguoiDung();
+        }
+        [Route("get-SLTT")]
+        [HttpGet]
+        public string GetSoLuongTinTuc()
+        {
+          return _spBusiness.GetSoLuongTinTuc();
+        }
   }
 }

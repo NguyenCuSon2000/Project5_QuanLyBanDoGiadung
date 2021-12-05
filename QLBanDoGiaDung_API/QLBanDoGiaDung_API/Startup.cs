@@ -117,6 +117,8 @@ namespace QLBanDoGiaDung_API
             services.AddTransient<IDonHangRepository, DonHangRepository>();
             services.AddTransient<INguoiDungBussiness, NguoiDungBussiness>();
             services.AddTransient<INguoiDungRepository, NguoiDungRepository>();
+            services.AddTransient<ITinTucBussiness, TinTucBussiness>();
+            services.AddTransient<ITinTucRepository, TinTucRepository>();
             services.AddTransient<IDiaChiBussiness, DiaChiBussiness>();
             services.AddTransient<IDiaChiRepository, DiaChiRepository>();
             services.AddTransient<IThongKeBussiness, ThongKeBussiness>();

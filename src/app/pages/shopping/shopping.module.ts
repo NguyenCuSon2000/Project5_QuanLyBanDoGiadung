@@ -7,6 +7,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { DropdownModule } from 'primeng/dropdown';
 import { AuthGuard } from 'src/app/core/auth.guard';
+import { MyAccountComponent } from './my-account/my-account.component';
 
 
 
@@ -14,7 +15,8 @@ import { AuthGuard } from 'src/app/core/auth.guard';
   declarations: [
     CheckoutComponent,
     CartComponent,
-    LoginComponent
+    LoginComponent,
+    MyAccountComponent
   ],
   imports: [
     CommonModule,
@@ -34,6 +36,10 @@ import { AuthGuard } from 'src/app/core/auth.guard';
       {
         path:'login',
         component: LoginComponent
+      },
+      {
+        path:'my-account',
+        component: MyAccountComponent
       }
     ])
   ]

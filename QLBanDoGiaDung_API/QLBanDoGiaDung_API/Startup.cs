@@ -15,7 +15,10 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
 using Microsoft.IdentityModel.Tokens;
-
+using Microsoft.OpenApi.Models;
+using QLBanDoGiaDung_API.Interfaces;
+using QLBanDoGiaDung_API.Services;
+using QLBanDoGiaDung_API.Settings;
 
 namespace QLBanDoGiaDung_API
 {
@@ -36,14 +39,15 @@ namespace QLBanDoGiaDung_API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddCors();
+            //services.AddCors();
             services.AddControllers();
-            //services.AddSwaggerGen(c =>
-            //{
-            //    c.SwaggerDoc("v1", new OpenApiInfo { Title = "QuanLyBanDoGiaDung_API", Version = "v1" });
-            //});
-            //services.AddScoped<IPhotoService, PhotoService>();
-
+            services.Configure<MailSettings>(Configuration.GetSection("MailSettings"));
+            services.AddTransient<IMailService, MailService>();
+   
+            services.AddSwaggerGen(c =>
+                    {
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "QuanLyBanDoGiaDung_API", Version = "v1" });
+              });
 
             // configure strongly typed settings objects
             var appSettingsSection = Configuration.GetSection("AppSettings");
@@ -52,23 +56,6 @@ namespace QLBanDoGiaDung_API
             // configure jwt authentication
             var appSettings = appSettingsSection.Get<AppSettings>();
             var key = Encoding.ASCII.GetBytes(appSettings.Secret);
-            //services.AddAuthentication(x =>
-            //{
-            //  x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-            //  x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-            //})
-            //.AddJwtBearer(x =>
-            //{
-            //  x.RequireHttpsMetadata = false;
-            //  x.SaveToken = true;
-            //  x.TokenValidationParameters = new TokenValidationParameters
-            //  {
-            //    ValidateIssuerSigningKey = true,
-            //    IssuerSigningKey = new SymmetricSecurityKey(key),
-            //    ValidateIssuer = false,
-            //    ValidateAudience = false
-            //  };
-            //});
 
             services.AddAuthentication(o =>
             {
@@ -77,21 +64,6 @@ namespace QLBanDoGiaDung_API
             })
             .AddJwtBearer(o =>
             {
-                //// my API name as defined in Config.cs - new ApiResource... or in DB ApiResources table
-                //o.Audience = Configuration["Settings:Authentication:ApiName"];
-                //// URL of Auth server(API and Auth are separate projects/applications),
-                //// so for local testing this is http://localhost:5000 if you followed ID4 tutorials
-                //o.Authority = Configuration["Settings:Authentication:Authority"];
-
-                //o.TokenValidationParameters = new TokenValidationParameters
-                //{
-                //    ValidateAudience = true,
-                //    // Scopes supported by API as defined in Config.cs - new ApiResource... or in DB ApiScopes table
-                //    ValidAudiences = new List<string>() {
-                //    "api.read",
-                //    "api.write"},
-                //        ValidateIssuer = true
-                //};
                 o.RequireHttpsMetadata = false;
                 o.SaveToken = true;
                 o.TokenValidationParameters = new TokenValidationParameters
@@ -128,19 +100,24 @@ namespace QLBanDoGiaDung_API
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            app.UseRouting();
+           
             if (env.IsDevelopment())
             {
-                app.UseDeveloperExceptionPage();
-                //app.UseSwagger();
-                //app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "QuanLyBanDoGiaDung_API v1"));
+              app.UseDeveloperExceptionPage();
+              app.UseSwagger();
+              app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "BlogManagement v1"));
             }
+            //app.UseSwaggerUI(c =>
+            //{
+            //  c.SwaggerEndpoint("./v1/swagger.json", "My API V1"); //originally "./swagger/v1/swagger.json"
+            //});
             app.UseCors(x => x
-                        .AllowAnyOrigin()
-                        .AllowAnyMethod()
-                        .AllowAnyHeader());
-           
-            app.UseHttpsRedirection();
+                              .AllowAnyOrigin()
+                              .AllowAnyMethod()
+                              .AllowAnyHeader());
+
+            app.UseRouting();
+            app.UseDeveloperExceptionPage();
             app.UseAuthentication();
             app.UseAuthorization();
             app.UseEndpoints(endpoints =>

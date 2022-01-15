@@ -106,3 +106,6 @@ D:\ĐỒ ÁN 5\QuanLyBanDoGiaDung\QLBanDoGiaDung_API\QLBanDoGiaDung_API\obj\Debu
 D:\ĐỒ ÁN 5\QuanLyBanDoGiaDung\QLBanDoGiaDung_API\QLBanDoGiaDung_API\obj\Debug\net5.0\QLBanDoGiaDung_API.RazorTargetAssemblyInfo.cache
 D:\ĐỒ ÁN 5\QuanLyBanDoGiaDung\QLBanDoGiaDung_API\QLBanDoGiaDung_API\obj\Debug\net5.0\QLBanDoGiaDung_API.csproj.CopyComplete
 D:\ĐỒ ÁN 5\QuanLyBanDoGiaDung\QLBanDoGiaDung_API\QLBanDoGiaDung_API\obj\Debug\net5.0\QLBanDoGiaDung_API.genruntimeconfig.cache
+D:\ĐỒ ÁN 5\QuanLyBanDoGiaDung\QLBanDoGiaDung_API\QLBanDoGiaDung_API\bin\Debug\net5.0\MailKit.dll
+D:\ĐỒ ÁN 5\QuanLyBanDoGiaDung\QLBanDoGiaDung_API\QLBanDoGiaDung_API\bin\Debug\net5.0\MimeKit.dll
+D:\ĐỒ ÁN 5\QuanLyBanDoGiaDung\QLBanDoGiaDung_API\QLBanDoGiaDung_API\bin\Debug\net5.0\BouncyCastle.Crypto.dll

@@ -9,10 +9,9 @@ using System.Linq;
 
 namespace QLBanDoGiaDung_API.Controllers
 {
-    
-    [Route("api/[controller]")]
-    [ApiController]
-    public class DonHangController : ControllerBase
+  [ApiController]
+  [Route("api/[controller]")]
+  public class DonHangController : ControllerBase
     {
         private IDonHangBussiness _HoaDonBussiness;
         public DonHangController(IDonHangBussiness HoaDonBussiness)

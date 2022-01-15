@@ -13,8 +13,9 @@ using System.Threading.Tasks;
 namespace QLBanDoGiaDung_API.Controllers
 {
 
-  [Route("api/[controller]")]
+ 
   [ApiController]
+  [Route("api/[controller]")]
   public class TinTucController : ControllerBase
   {
     private ITinTucBussiness _spBusiness;
@@ -26,7 +27,7 @@ namespace QLBanDoGiaDung_API.Controllers
       _path = configuration["AppSettings:PATH"];
       _path1 = configuration["AppSettings:PATH1"];
     }
-
+    [NonAction]
     public string SaveFileFromBase64String(string RelativePathFileName, string dataFromBase64String)
     {
       if (dataFromBase64String.Contains("base64,"))
@@ -35,6 +36,7 @@ namespace QLBanDoGiaDung_API.Controllers
       }
       return WriteFileToAuthAccessFolder(RelativePathFileName, dataFromBase64String);
     }
+    [NonAction]
     public string WriteFileToAuthAccessFolder(string RelativePathFileName, string base64StringData)
     {
       try

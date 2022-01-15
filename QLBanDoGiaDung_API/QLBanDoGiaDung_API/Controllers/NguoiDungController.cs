@@ -7,15 +7,18 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Security.Cryptography;
+using System.Text;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace QLBanDoGiaDung_API.Controllers
 {
     [Authorize]
-    [Route("api/[controller]")]
+    
     [ApiController]
-    public class NguoiDungController : ControllerBase
+  [Route("api/[controller]")]
+  public class NguoiDungController : ControllerBase
     {
         private INguoiDungBussiness _userBusiness;
         private string _path;
@@ -35,8 +38,8 @@ namespace QLBanDoGiaDung_API.Controllers
                 return BadRequest(new { message = "Username or password is incorrect" });
             return Ok(user);
         }
-
-        public string SaveFileFromBase64String(string RelativePathFileName, string dataFromBase64String)
+    [NonAction]
+    public string SaveFileFromBase64String(string RelativePathFileName, string dataFromBase64String)
         {
             if (dataFromBase64String.Contains("base64,"))
             {
@@ -44,7 +47,8 @@ namespace QLBanDoGiaDung_API.Controllers
             }
             return WriteFileToAuthAccessFolder(RelativePathFileName, dataFromBase64String);
         }
-        public string WriteFileToAuthAccessFolder(string RelativePathFileName, string base64StringData)
+    [NonAction]
+    public string WriteFileToAuthAccessFolder(string RelativePathFileName, string base64StringData)
         {
             try
             {
@@ -99,6 +103,7 @@ namespace QLBanDoGiaDung_API.Controllers
         {
             
             model.MaNguoiDung = Guid.NewGuid().ToString();
+             model.MatKhau = GetMD5(model.MatKhau);
             _userBusiness.Create(model);
             return model;
         }
@@ -145,5 +150,21 @@ namespace QLBanDoGiaDung_API.Controllers
             }
             return response;
         }
-    }
+
+    [NonAction]
+        public static string GetMD5(string str)
+        {
+          MD5 md5 = new MD5CryptoServiceProvider();
+          byte[] fromData = Encoding.UTF8.GetBytes(str);
+          byte[] targetData = md5.ComputeHash(fromData);
+          string byte2String = null;
+
+          for (int i = 0; i < targetData.Length; i++)
+          {
+            byte2String += targetData[i].ToString("x2");
+
+          }
+          return byte2String;
+        }
+      }
 }

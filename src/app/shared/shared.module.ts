@@ -8,6 +8,7 @@ import { AddCartSectionComponent } from './component/add-cart-section/add-cart-s
 import { WishlishComponent } from './component/wishlish/wishlish.component';
 import { AddCartModalComponent } from './component/add-cart-modal/add-cart-modal.component';
 import { QuickViewModalComponent } from './component/quick-view-modal/quick-view-modal.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -24,7 +25,8 @@ import { QuickViewModalComponent } from './component/quick-view-modal/quick-view
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    ReactiveFormsModule
   ],
   exports: [
     HeaderComponent,

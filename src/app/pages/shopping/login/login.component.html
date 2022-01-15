@@ -79,11 +79,11 @@
                         </div>
                         <div class="default-form-box">
                             <label class="form-label" for="hoten">Ngày sinh</label>
-                            <input type="date" class="form-control" formControlName="NgaySinh" id="NgaySinh" placeholder="Nhập họ tên">
+                            <input type="date" class="form-control" formControlName="NgaySinh" id="NgaySinh" >
                         </div>
                         <div class="default-form-box">
                             <label class="form-label" for="hoten">Địa chỉ</label>
-                            <input type="text" class="form-control" formControlName="DiaChi" id="DiaChi" placeholder="Nhập họ tên">
+                            <input type="text" class="form-control" formControlName="DiaChi" id="DiaChi" placeholder="Nhập địa chỉ">
                             <label class="col alert alert-danger" role="alert" *ngIf="frmRegister.controls.DiaChi?.errors?.required  && frmRegister.controls.DiaChi?.touched " >
                                 Địa chỉ là rỗng hoặc không đúng định dạng!
                             </label>

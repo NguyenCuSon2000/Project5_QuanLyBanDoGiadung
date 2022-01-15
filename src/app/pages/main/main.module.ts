@@ -8,19 +8,22 @@ import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { NgbModule, NgbPagination } from '@ng-bootstrap/ng-bootstrap';
 import { CategoryListComponent } from './category-list/category-list.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CoreModule } from '../../core/core.module';
 import { BlogListComponent } from './blog-list/blog-list.component';
 import { BlogDetailsComponent } from './blog-details/blog-details.component';
+import { SearchComponent } from './search/search.component';
 
 
 
 @NgModule({
-  declarations: [HomeComponent, ProductListComponent,ProductDetailsComponent, AboutUsComponent, ContactUsComponent, CategoryListComponent, BlogListComponent, BlogDetailsComponent],
+  declarations: [HomeComponent, ProductListComponent,ProductDetailsComponent, AboutUsComponent, ContactUsComponent, CategoryListComponent, BlogListComponent, BlogDetailsComponent, SearchComponent],
   imports: [
     NgbModule,
     CommonModule,
     CoreModule,
+    ReactiveFormsModule,
+    FormsModule,
     RouterModule.forChild([
       {
         path: '',
@@ -45,6 +48,10 @@ import { BlogDetailsComponent } from './blog-details/blog-details.component';
       {
         path:'blog-details/:id',
         component: BlogDetailsComponent
+      },
+      {
+        path:'search/:tenSanPham',
+        component: SearchComponent
       },
       {
         path:'about-us',

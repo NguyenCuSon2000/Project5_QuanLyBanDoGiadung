@@ -52,7 +52,7 @@
                     <!-- End Large Image -->
                      <!-- Start Thumbnail Image -->
                     <div class="product-image-thumb product-image-thumb-horizontal swiper-container pos-relative mt-5">
-                            <div class="swiper-wrapper">
+                            <!-- <div class="swiper-wrapper">
                                 <div class="product-image-thumb-single swiper-slide">
                                     <img class="img-fluid" src="assets/images/product/default/home-1/default-1.jpg" alt="">
                                 </div>
@@ -71,7 +71,7 @@
                                 <div class="product-image-thumb-single swiper-slide">
                                     <img class="img-fluid" src="assets/images/product/default/home-1/default-6.jpg" alt="">
                                 </div>
-                        </div>
+                        </div> -->
                         <!-- Add Arrows -->
                         <div class="gallery-thumb-arrow swiper-button-next"></div>
                         <div class="gallery-thumb-arrow swiper-button-prev"></div>
@@ -114,23 +114,21 @@
                             </div>
 
                             <div class="product-add-to-cart-btn">
-                                <a href="#" (click)="addToCart(product)" class="btn btn-block btn-lg btn-black-default-hover" data-bs-toggle="modal" data-bs-target="#modalAddcart">+ Add To Cart</a>
+                                <a href="#" (click)="addToCart(product)" class="btn btn-block btn-lg btn-black-default-hover" data-bs-toggle="modal" data-bs-target="#modalAddcart">+ Thêm giỏ hàng</a>
                             </div>
                         </div>
                         <!-- Start  Product Details Meta Area-->
                         <div class="product-details-meta mb-20">
-                            <a href="wishlist.html" class="icon-space-right"><i class="icon-heart"></i>Add to wishlist</a>
+                            <a href="wishlist.html" class="icon-space-right"><i class="icon-heart"></i>Thêm vào danh sách yêu thích</a>
                             <a href="compare.html" class="icon-space-right"><i class="icon-refresh"></i>Compare</a>
                         </div> <!-- End  Product Details Meta Area-->
                     </div> <!-- End Product Variable Area -->
                     
                     <!-- Start  Product Details Catagories Area-->
                     <div class="product-details-catagory mb-2">
-                        <span class="title">CATEGORIES:</span>
+                        <span class="title">LOẠI HÀNG:</span>
                         <ul>
-                            <li><a href="#">BAR STOOL</a></li>
-                            <li><a href="#">KITCHEN UTENSILS</a></li>
-                            <li><a href="#">TENNIS</a></li>
+                            <li><a  routerLink="/product-list/{{ product.maLoai }}">{{product.tenLoai}}</a></li>
                         </ul>
                     </div> <!-- End  Product Details Catagories Area-->
                     <!-- Start  Product Details Social Area-->

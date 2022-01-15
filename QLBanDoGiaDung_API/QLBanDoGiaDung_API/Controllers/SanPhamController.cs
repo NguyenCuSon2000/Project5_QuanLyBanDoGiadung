@@ -12,9 +12,8 @@ using System.Threading.Tasks;
 
 namespace QLBanDoGiaDung_API.Controllers
 {
-
-  [Route("api/[controller]")]
   [ApiController]
+  [Route("api/[controller]")]
   public class SanPhamController : ControllerBase
   {
     private ISanPhamBussiness _spBusiness;
@@ -26,7 +25,7 @@ namespace QLBanDoGiaDung_API.Controllers
       _path = configuration["AppSettings:PATH"];
       _path1 = configuration["AppSettings:PATH1"];
     }
-
+    [NonAction]
     public string SaveFileFromBase64String(string RelativePathFileName, string dataFromBase64String)
     {
       if (dataFromBase64String.Contains("base64,"))
@@ -35,6 +34,7 @@ namespace QLBanDoGiaDung_API.Controllers
       }
       return WriteFileToAuthAccessFolder(RelativePathFileName, dataFromBase64String);
     }
+    [NonAction]
     public string WriteFileToAuthAccessFolder(string RelativePathFileName, string base64StringData)
     {
       try
@@ -103,16 +103,6 @@ namespace QLBanDoGiaDung_API.Controllers
         return ex.Message;
       }
     }
-    //[HttpPost("add/photo/{id}")]
-    //public async Task<IActionResult> AddProductPhoto(IFormFile file, int proId)
-    //{
-    //    var result = await photoService.UploadPhotoAsync(file);
-    //    if (result.Error != null)
-    //    {
-    //        return BadRequest(result.Error.Message);
-    //    }
-    //    return Ok(201);
-    //}
 
     // GET: api/<SanPhamController>
     [Route("get-all")]
@@ -229,17 +219,6 @@ namespace QLBanDoGiaDung_API.Controllers
       _spBusiness.Update(model);
       return model;
     }
-
-    //[Route("delete-product")]
-    //[HttpPost]
-    //public IActionResult DeleteProduct([FromBody] Dictionary<string, object> formData)
-    //{
-    //    int masp = 0;
-    //    if (formData.Keys.Contains("masp") && !string.IsNullOrEmpty(Convert.ToString(formData["masp"])))
-    //    { masp = int.Parse(formData["masp"].ToString()); }
-    //    _spBusiness.Delete(masp);
-    //    return Ok();
-    //}
 
     [Route("delete-product")]
     [HttpPost]

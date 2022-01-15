@@ -89,7 +89,7 @@
             <div class="col-lg-8">
                 <div class="contact-form section-top-gap-100" data-aos="fade-up"  data-aos-delay="200">
                     <h3>Get In Touch</h3>
-                    <form id="contact-form" action="https://htmlmail.hasthemes.com/nazmul/mail.php" method="post">
+                    <!-- <form id="contact-form" method="post">
                         <div class="row">
                             <div class="col-lg-6">
                                 <div class="default-form-box mb-20">
@@ -117,6 +117,38 @@
                             </div>
                             <div class="col-lg-12">
                                 <button class="btn btn-lg btn-black-default-hover" type="submit">SEND</button>
+                            </div>
+                            <p class="form-messege"></p>
+                        </div>
+                    </form> -->
+                    <form id="contact-form" [formGroup]="frmContact" (ngSubmit)="onSend(frmContact.value)">
+                        <div class="row" >
+                            <!-- <div class="col-lg-6">
+                                <div class="default-form-box mb-20">
+                                    <label for="contact-name">ToEmail</label>
+                                    <input name="name" type="text" id="contact-name">
+                                </div>
+                            </div> -->
+                            <div class="col-lg-6">
+                                <div class="default-form-box mb-20">
+                                    <label for="contact-email">ToEmail</label>
+                                    <input formControlName="ToEmail" name="email" type="email" id="contact-email">
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+                                <div class="default-form-box mb-20">
+                                    <label for="contact-subject">Subject</label>
+                                    <input formControlName="Subject" name="subject" type="text" id="contact-subject">
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+                                <div class="default-form-box mb-20">
+                                    <label for="contact-message">Your Message</label>
+                                    <textarea formControlName="Body" name="body" id="contact-message" cols="30" rows="10"></textarea>
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+                                <button class="btn btn-lg btn-black-default-hover" [disabled]="frmContact.invalid || loading" type="submit">SEND</button>
                             </div>
                             <p class="form-messege"></p>
                         </div>

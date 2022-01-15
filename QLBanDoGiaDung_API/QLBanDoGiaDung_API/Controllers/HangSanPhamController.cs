@@ -1,4 +1,4 @@
-﻿using BLL;
+using BLL;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -15,9 +15,10 @@ using System.Threading.Tasks;
 namespace QLBanDoGiaDung_API.Controllers
 {
    
-    [Route("api/[controller]")]
+   
     [ApiController]
-    public class HangSanPhamController : ControllerBase
+  [Route("api/[controller]")]
+  public class HangSanPhamController : ControllerBase
     {
         private IHangSanPhamBussiness _hangspBusiness;
         private string _path;

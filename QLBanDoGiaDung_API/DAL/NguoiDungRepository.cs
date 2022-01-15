@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System;
+using System.Security.Cryptography;
 
 namespace DAL
 {
@@ -114,7 +115,7 @@ namespace DAL
             {
                 var dt = _dbHelper.ExecuteSProcedureReturnDataTable(out msgError, "sp_user_get_by_username_password",
                      "@taikhoan", username,
-                     "@matkhau", password);
+                     "@matkhau", GetMD5(password));
                 if (!string.IsNullOrEmpty(msgError))
                     throw new Exception(msgError);
                 return dt.ConvertTo<NguoiDungModel>().FirstOrDefault();
@@ -161,6 +162,21 @@ namespace DAL
             {
                 throw ex;
             }
+        }
+
+        public static string GetMD5(string str)
+        {
+          MD5 md5 = new MD5CryptoServiceProvider();
+          byte[] fromData = Encoding.UTF8.GetBytes(str);
+          byte[] targetData = md5.ComputeHash(fromData);
+          string byte2String = null;
+
+          for (int i = 0; i < targetData.Length; i++)
+          {
+            byte2String += targetData[i].ToString("x2");
+
+          }
+          return byte2String;
         }
 
     }

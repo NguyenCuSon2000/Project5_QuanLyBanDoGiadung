@@ -69,7 +69,7 @@ export class CartService {
   }
 
   clearCart() {
-   localStorage.clear();
+   localStorage.removeItem('cart');
    this.itemsSubject.next(null);
   }
 }

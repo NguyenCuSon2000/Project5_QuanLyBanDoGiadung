@@ -16,14 +16,14 @@ export class AddCartModalComponent extends BaseComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this._cart.items.subscribe((res) => {
-      this.items = res;
-      this.total = 0;
-      for(let x of this.items){ 
-        x.money = x.quantity * x.item_price;
-        this.total += x.quantity * x.item_price;
-      } 
-    });
+    // this._cart.items.subscribe((res) => {
+    //   this.items = res;
+    //   this.total = 0;
+    //   for(let x of this.items){ 
+    //     x.money = x.quantity * x.item_price;
+    //     this.total += x.quantity * x.item_price;
+    //   } 
+    // });
   }
 
 }

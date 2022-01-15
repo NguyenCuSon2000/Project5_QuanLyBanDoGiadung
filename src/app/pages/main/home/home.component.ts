@@ -31,12 +31,21 @@ export class HomeComponent extends BaseComponent implements OnInit {
     }); 
     this._api.post('/api/ThongKe/get-sanpham-banchay',{page: this.page, pageSize: this.pageSize}).takeUntil(this.unsubscribe).subscribe(res => {
       this.products_best_selling = res.data;
+      setTimeout(() => {
+        this.loadScripts();
+      });
     });
     this._api.post('/api/SanPham/search',{page: this.page, pageSize: this.pageSize}).takeUntil(this.unsubscribe).subscribe(res => {
       this.products = res.data;
+      setTimeout(() => {
+        this.loadScripts();
+      });
     });
     this._api.post('/api/TinTuc/search',{page: this.page, pageSize: this.pageSize}).takeUntil(this.unsubscribe).subscribe(res => {
       this.blogs = res.data;
+      setTimeout(() => {
+        this.loadScripts();
+      });
     });
   }
   addToCart(it) { 

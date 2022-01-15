@@ -15,9 +15,10 @@ using System.Threading.Tasks;
 namespace QLBanDoGiaDung_API.Controllers
 {
    
-    [Route("api/[controller]")]
+   
     [ApiController]
-    public class NhomSanPhamController : ControllerBase
+  [Route("api/[controller]")]
+  public class NhomSanPhamController : ControllerBase
     {
         private INhomSanPhamBussiness _nhomspBusiness;
         private string _path;

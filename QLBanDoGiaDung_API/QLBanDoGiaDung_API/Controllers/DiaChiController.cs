@@ -12,10 +12,9 @@ using System.Threading.Tasks;
 
 namespace QLBanDoGiaDung_API.Controllers
 {
-
-    [Route("api/[controller]")]
     [ApiController]
-    public class DiaChiController : ControllerBase
+  [Route("api/[controller]")]
+  public class DiaChiController : ControllerBase
     {
         private IDiaChiBussiness _dcBusiness;
         

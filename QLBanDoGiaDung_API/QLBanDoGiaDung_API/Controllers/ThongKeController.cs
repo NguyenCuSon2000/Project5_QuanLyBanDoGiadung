@@ -15,9 +15,10 @@ using System.Threading.Tasks;
 namespace QLBanDoGiaDung_API.Controllers
 {
     //[Authorize]
-    [Route("api/[controller]")]
+   
     [ApiController]
-    public class ThongKeController : ControllerBase
+  [Route("api/[controller]")]
+  public class ThongKeController : ControllerBase
     {
         private IThongKeBussiness _spBusiness;
         private string _path;
